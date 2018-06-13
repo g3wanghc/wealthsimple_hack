@@ -1,0 +1,38 @@
+APP CREDS
+
+{
+    "object": "application",
+    "id": 79,
+    "name": "The Data Baes",
+    "uid": "5a8db5d496a1e46609eadc59583ac937e72a914e59726f9253d9c395e19c14ec",
+    "secret": "575215cab1ec46bb14dff51e04118fd2c5135cce9e361a4ffcf649dd5683ce40",
+    "confidential": true,
+    "redirect_uri": [
+        "https://localhost:3000/auth"
+    ],
+    "scopes": [
+        "read",
+        "write"
+    ],
+    "application_family_id": null,
+    "integration_policy": {
+        "api_version": "v1",
+        "authentication": [
+            "authorization_code",
+            "refresh_token"
+        ],
+        "user_roles": [],
+        "userless_endpoints": {},
+        "version": "v1",
+        "abilities": []
+    },
+    "first_party": false,
+    "created_at": "2018-05-31T23:45:11Z",
+    "updated_at": "2018-05-31T23:45:11Z"
+}
+
+USERS 
+
+stagging.wealthsimple.com
+
+email: hackthesix+user17@wealthsimple.com   password: hackthesix!
