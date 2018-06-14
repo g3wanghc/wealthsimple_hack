@@ -36,3 +36,18 @@ USERS
 stagging.wealthsimple.com
 
 email: hackthesix+user17@wealthsimple.com   password: hackthesix!
+
+email: hackthesix+user+1@wealthsimple.com   password: hackthesix!
+email: hackthesix+user+10@wealthsimple.com   password: hackthesix!
+
+
+
+
+Org -> user5
+
+Team 1        |   Team 2 
+              |
+|      |      |   |      |        
+              |
+user1  user2  |   user3  user4
+
