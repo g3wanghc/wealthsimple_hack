@@ -29,5 +29,18 @@ def init_db():
 @app.route('/')
 def index():
     temp_user = {'username': 'Micro'}
-    return render_template('index.html', user=temp_user)
+    return render_template('index.html')
 
+# @app.route('/api/user/login')
+# @app.route('/api/user/logout')
+
+# @app.route('/api/account/increment')
+# @app.route('/api/account/decrement')
+# @app.route('/api/account/get_position')
+# @app.route('/api/account/get_portfolios')
+# @app.route('/api/account/set_portfolio')
+
+# @app.route('/api/user/get_teams')
+# @app.route('/api/user/vote_portfolio')
+
+# @app.route('/api/team/run_lottery')
