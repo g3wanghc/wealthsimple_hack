@@ -6,7 +6,6 @@ import Helpers from './helpers.js';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    // Don't call this.setState() here!
     this.state = { 
       username: '',
       password: '' };
@@ -14,7 +13,6 @@ class Login extends React.Component {
     this.setUsername = this.setUsername.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.userLogin = this.userLogin.bind(this);
-
   }
 
   setUsername(e) {
@@ -26,8 +24,9 @@ class Login extends React.Component {
   }
 
   userLogin() {
-      console.log("username", this.state.username );
+      console.log("username", this.state.username);
       console.log("password", this.state.password);
+      this.props.loginHandler(true);
   }
 
   render() {
@@ -56,7 +55,7 @@ class Login extends React.Component {
           </FormGroup>
         </form>
         <Button onClick={this.userLogin}>
-          Submit
+          Log In!
         </Button>
       </div>
     );

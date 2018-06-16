@@ -33,7 +33,7 @@ APP CREDS
 
 USERS 
 
-stagging.wealthsimple.com
+staging.wealthsimple.com
 
 email: hackthesix+user17@wealthsimple.com   password: hackthesix!
 
