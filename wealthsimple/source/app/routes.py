@@ -31,16 +31,22 @@ def index():
     temp_user = {'username': 'Micro'}
     return render_template('index.html')
 
+# user related functions - assuming team assognments are hardcoded 
 # @app.route('/api/user/login')
 # @app.route('/api/user/logout')
 
-# @app.route('/api/account/increment')
-# @app.route('/api/account/decrement')
-# @app.route('/api/account/get_position')
-# @app.route('/api/account/get_portfolios')
-# @app.route('/api/account/set_portfolio')
-
-# @app.route('/api/user/get_teams')
-# @app.route('/api/user/vote_portfolio')
-
+# wealthsimple bank account related operations
+# @app.route('/api/team/increment')
+# @app.route('/api/team/decrement')
+# @app.route('/api/team/get_position') 
+# @app.route('/api/team/get_portfolios')
+# @app.route('/api/team/set_portfolio')
+# @app.route('/api/team/members')
 # @app.route('/api/team/run_lottery')
+
+# user interactions 
+# @app.route('/api/user/get_position')
+# @app.route('/api/user/vote_portfolio')
+# @app.route('/api/user/increment')
+# @app.route('/api/user/decrement')
+
