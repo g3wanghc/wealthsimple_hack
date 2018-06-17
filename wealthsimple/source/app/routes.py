@@ -7,6 +7,8 @@ import sqlite3
 
 DATABASE = 'database.db'
 
+# -------------------------------------------------------------------
+
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -19,6 +21,9 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+# import app
+# app.routes.init_db()
+
 def init_db():
     with app.app_context():
         db = get_db()
@@ -26,9 +31,12 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
 
+    print("hello world")
+
+# -------------------------------------------------------------------
+
 @app.route('/')
 def index():
-    temp_user = {'username': 'Micro'}
     return render_template('index.html')
 
 # user related functions - assuming team assognments are hardcoded 
