@@ -22,7 +22,8 @@ CREATE TABLE transactions (
   ToUser TEXT,
   ToUserDisplay TEXT,
   Amount REAL,
-  Description TEXT
+  Description TEXT,
+  Team TEXT
 );
 
 INSERT INTO users (
@@ -38,7 +39,20 @@ VALUES
 ("hackthesix+user+5@wealthsimple.com", "hackthesix!","Obi-Wan Kenobi"),
 ("hackthesix+user+6@wealthsimple.com", "hackthesix!","Big-Daddy Charlie");
 
-INSERT INTO teams (
+INSERT INTO transactions (
+  FromUser,
+  FromUserDisplayName,
+  ToUser,
+  ToUserDisplay,
+  Amount,
+  Description,
+  Team
+)
+VALUES
+  ("hackthesix+user+3@wealthsimple.com", "Arash Nourimand", "hackthesix+user+2@wealthsimple.com", "Hanchen Wang", "5.00", "Transferring money for the coca-cola","Team Edward"), 
+  ("hackthesix+user+6@wealthsimple.com", "Big-Daddy Charlie", "hackthesix+user+4@wealthsimple.com", "Light Yagami", "500.00", "Writing my ex wife's name in the notebook","Team Edward");
+
+  INSERT INTO teams (
   TeamName,
   UserName,
   Password,
