@@ -21,7 +21,8 @@ CREATE TABLE transactions (
   FromUserDisplayName TEXT,
   ToUser TEXT,
   ToUserDisplay TEXT,
-  Amount REAL
+  Amount REAL,
+  Description TEXT
 );
 
 INSERT INTO users (
