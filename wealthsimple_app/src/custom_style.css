@@ -7,18 +7,79 @@
    overflow: hidden;
 }
 
+.dashboard-whole {
+    width: 1080px;
+    float: center;
+    border-radius: 15px;
+    margin-left: 25px;
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 200px;
+    background: LightCyan;
+}
+
 .dashboard-left {
     width: 625px;
     float: left;
+    border-radius: 15px;
+    
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
     margin-left: 25px;
-    padding-left: 25px;
-    background: gray;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 400px;
+    background: LightCyan;
 }
 
 .dashboard-right {
     width: 425px;
     float: right;
+    border-radius: 15px;
     margin-right: 25px;
-    padding-right: 25px;
-    background: blue;
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 400px;
+    background: LightCyan;
+}
+
+.dashboard-left-small {
+    width: 625px;
+    float: left;
+    border-radius: 15px;
+    
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 220px;
+    background: LightCyan;
+}
+
+.dashboard-right-small {
+    width: 425px;
+    float: right;
+    border-radius: 15px;
+    margin-right: 25px;
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 220px;
+    background: LightCyan;
 }

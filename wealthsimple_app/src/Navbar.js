@@ -20,10 +20,16 @@ class CustomNavbar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">Wealthsimple Team App</a>
+            <a href="#home">Wealthsimple for Teams</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
+          <NavItem eventKey={1} onClick={() => this.userLogOut(false)}>
+            Profile
+          </NavItem>
+          <NavItem eventKey={1} onClick={() => this.userLogOut(false)}>
+            Settings
+          </NavItem>
           <NavItem eventKey={1} onClick={() => this.userLogOut(false)}>
             Log out
           </NavItem>
