@@ -7,7 +7,18 @@ import sqlite3
 
 DATABASE = 'database.db'
 
-TOKEN = 'access token'
+CREDENTIALS = {
+    "uid":"971db3014fa95ac88451344e51b0283d5f0aed001c3568bfaff18419a2b36464",
+    "secret":"5d77ba6b791f5f00d96ce32c47188b06447e36c1045134561070d40c0fea2880",
+    "redirect_uri":"http://localhost:3000/callback",
+    "url": "https://staging.wealthsimple.com/oauth/authorize?client_id=#{APPLICATION_ID}&redirect_uri=#{REDIRECT_URI}&response_type=#{response_type}&scope=#{scope}&state=#{state}",
+    "scopes": "read write"
+}
+
+USER_TOKENS = []
+TEAM_TOKENS = []
+
+
 # -------------------------------------------------------------------
 
 def get_db():
@@ -35,66 +46,54 @@ def init_db():
     print("database initialized")
 
 # -------------------------------------------------------------------
-before_first_request
-    def __init__(self, credentials):
+# @app.before_first_request
 
-        """Constructor for the class, only parameter is the credentials
-        that Ross gave us in the form of a dictionary
-        """
-        self.credentials = {
-            "uid":"971db3014fa95ac88451344e51b0283d5f0aed001c3568bfaff18419a2b36464",
-            "secret":"5d77ba6b791f5f00d96ce32c47188b06447e36c1045134561070d40c0fea2880",
-            "redirect_uri":"http://localhost:3000/callback",
-            "url": "https://staging.wealthsimple.com/oauth/authorize?client_id=#{APPLICATION_ID}&redirect_uri=#{REDIRECT_URI}&response_type=#{response_type}&scope=#{scope}&state=#{state}",
-            "scopes": "read"
-        }
+def generate_url_with_params(self, url: str, params: dict):
+    """This will use urllib to append the parameters to the end of the url
+    code from: https://stackoverflow.com/questions/2506379/add-params-to-given-url-in-python
 
-    def generate_url_with_params(self, url: str, params: dict):
-        """This will use urllib to append the parameters to the end of the url
-        code from: https://stackoverflow.com/questions/2506379/add-params-to-given-url-in-python
+    url - the url of interest
+    params - a dictionary of the parameters to be appended
+    returns - a string containing the modified url
+    """
+    url_parts = list(urllib.parse.urlparse(url))
+    query = dict(urllib.parse.parse_qsl(url_parts[4]))
+    query.update(params)
+    url_parts[4] = urllib.parse.urlencode(query)
+    url_with_params = urllib.parse.urlunparse(url_parts)
 
-        url - the url of interest
-        params - a dictionary of the parameters to be appended
-        returns - a string containing the modified url
-        """
-        url_parts = list(urllib.parse.urlparse(url))
-        query = dict(urllib.parse.parse_qsl(url_parts[4]))
-        query.update(params)
-        url_parts[4] = urllib.parse.urlencode(query)
-        url_with_params = urllib.parse.urlunparse(url_parts)
-        return url_with_params
+    return url_with_params
 
-    def get_user_auth_url(self):
-        """Getting the authorization_code (aka authorization grant) requires
-        approving access for another user to take your account information
-        which you must do manually in the browser (might be able to automate
-        using Selenium to interact with the webpage, but too much work for now)
+def get_user_auth_url(self):
+    """Getting the authorization_code (aka authorization grant) requires
+    approving access for another user to take your account information
+    which you must do manually in the browser (might be able to automate
+    using Selenium to interact with the webpage, but too much work for now)
 
-        returns - a string containing the url to approve access to the account
-                  and get the authorization code
-        """
-        APPLICATION_ID = self.credentials['uid']
-        REDIRECT_URI = self.credentials['redirect_uri']#[0]
-        response_type = 'code'
-        scope = self.credentials['scopes']#[0]
-        state = 'gamma'
+    returns - a string containing the url to approve access to the account
+              and get the authorization code
+    """
+    APPLICATION_ID = self.credentials['uid']
+    REDIRECT_URI = self.credentials['redirect_uri']#[0]
+    response_type = 'code'
+    scope = self.credentials['scopes']#[0]
+    state = 'gamma'
 
-        user_auth_url = "https://staging.wealthsimple.com/oauth/authorize"
-        user_auth_params = {'client_id': APPLICATION_ID,
-                            'redirect_uri': REDIRECT_URI,
-                            'response_type': response_type,
-                            'scope': scope,
-                            'state': state
-                            }
+    user_auth_url = "https://staging.wealthsimple.com/oauth/authorize"
+    user_auth_params = {'client_id': APPLICATION_ID,
+                        'redirect_uri': REDIRECT_URI,
+                        'response_type': response_type,
+                        'scope': scope,
+                        'state': state
+                        }
 
-        user_auth_url_params = self.generate_url_with_params(user_auth_url,
-                                                             user_auth_params
-                                                             )
-        # open this address in your browser of choice
-        print(user_auth_url_params)
-        #code = input("After logging into the above URL and authorizing, what's the key after 'code=' and before '&' in the URL? ")
-        #return code
-
+    user_auth_url_params = self.generate_url_with_params(user_auth_url,
+                                                         user_auth_params
+                                                         )
+    # open this address in your browser of choice
+    print(user_auth_url_params)
+    #code = input("After logging into the above URL and authorizing, what's the key after 'code=' and before '&' in the URL? ")
+    #return code
 
 @app.route('/')
 def index():
