@@ -35,7 +35,7 @@ VALUES
 ("hackthesix+user+2@wealthsimple.com", "hackthesix!","Hanchen Wang"),
 ("hackthesix+user+3@wealthsimple.com", "hackthesix!","Arash Nourimand"),
 ("hackthesix+user+5@wealthsimple.com", "hackthesix!","Light Yagami"),
-("hackthesix+user+4@wealthsimple.com", "hackthesix!","Obi-Wan Kenobi"));
+("hackthesix+user+4@wealthsimple.com", "hackthesix!","Obi-Wan Kenobi");
 
 -- INSERT INTO teams (
 --   TeamName,
