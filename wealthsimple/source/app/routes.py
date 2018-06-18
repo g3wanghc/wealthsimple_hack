@@ -7,7 +7,7 @@ import sqlite3
 
 DATABASE = 'database.db'
 
-CREDENTIALS = {
+CREDENTIALS = { #INFORMATION NEEDED TO CREATE THE WEB APP
     "uid":"971db3014fa95ac88451344e51b0283d5f0aed001c3568bfaff18419a2b36464",
     "secret":"5d77ba6b791f5f00d96ce32c47188b06447e36c1045134561070d40c0fea2880",
     "redirect_uri":"http://localhost:3000/callback",
@@ -48,7 +48,7 @@ def init_db():
 # -------------------------------------------------------------------
 # @app.before_first_request
 
-def generate_url_with_params(self, url: str, params: dict):
+def generate_url_with_params(self, url: str, params: dict): #THIS FUNCTION WILL GENERATE A URL FROM VARIABLE INFORMATION; TAKEN FROM STACKOVERFLOW
     """This will use urllib to append the parameters to the end of the url
     code from: https://stackoverflow.com/questions/2506379/add-params-to-given-url-in-python
 
@@ -64,7 +64,7 @@ def generate_url_with_params(self, url: str, params: dict):
 
     return url_with_params
 
-def get_user_auth_url(self):
+def get_user_auth_url(self): #THIS FUNCTION GENERATES THE URL AND PRINTS IT. NORMALLY THIS WOULD BE TYPED INTO COMMAND BAR AND EXCECUTED FOR ACCESS GRANTING, BUT FOR PURPOSE OF COMPETITION, WE WILL ASSUME THAT ACCESS IS ALREADY GRANTED AND WORK WITH THE CODE
     """Getting the authorization_code (aka authorization grant) requires
     approving access for another user to take your account information
     which you must do manually in the browser (might be able to automate
@@ -95,6 +95,76 @@ def get_user_auth_url(self):
     #code = input("After logging into the above URL and authorizing, what's the key after 'code=' and before '&' in the URL? ")
     #return code
 
+def token_exchange(self, _authorization_code: str): #THIS CHANGES THE URL FOR THE ACCESS TOKEN
+        """Exhange the authorization_code received earlier for an access token from
+        the authorization server
+
+        returns - a string containing the access token
+        """
+        APPLICATION_ID = self.credentials['uid']
+        APPLICATION_SECRET = self.credentials['secret']
+        REDIRECT_URI = self.credentials['redirect_uri']#[0]
+        grant_type = 'authorization_code'#self.credentials['integration_policy']['authentication']#[0]
+        _authorization_code = #this is a string; in the url it should be the list of characters before "&state=gamma"
+
+        token_exchange_url = "https://api.sandbox.wealthsimple.com/v1/oauth/token"
+        token_exchange_params = {'client_id': APPLICATION_ID,
+                                 'client_secret': APPLICATION_SECRET,
+                                 'grant_type': grant_type,
+                                 'redirect_uri': REDIRECT_URI,
+                                 'code': 'a5a218fc040546e83b8c15acc31fd10b94f535477e6f31338df22925e52889c8'
+                                 }
+        token_exchange_url_params = self.generate_url_with_params(token_exchange_url,
+                                                                  token_exchange_params
+                                                                  )
+        response = requests.post(token_exchange_url_params)
+        json_data = json.loads(response.text)
+        access_token = json_data['access_token']
+        print('access token is: ' + access_token) #GENERATES AND PRINTS THE ACCESS TOKEN
+        return access_token
+
+    def get_data(self, endpoint: str): #THIS FUNCTION POSTS THE ACCESS TOKEN AND SPECIFIC API REQUEST, AND GETS INFORMATION BACK IN THE FORM OF A JSON FILE
+        """Get data from the endpoint specified
+        
+        returns - json from API
+        """
+        # After you run this once you can comment this out and replace access_token
+        # with the actual key to save typing it in every time
+        authorization_code = self.get_user_auth_url() #if no access token, this should be running so that it can get the information. After it is run once, this can be commented out, however for the purpose of the demo it shouldn't be a problem given the 7200 second allowance
+
+        # Now swap this authorization code for an access token
+        access_token = self.token_exchange(authorization_code) #This is the access token information. The first time this is ran, the script should be left as is. If the access token is generated, comment out this expression and make a string with the access token
+
+        # Use access_token to get information from the server
+        # Instead of -H in the URL like the documentation show python appends headers
+        # using a dictionary
+        headers = {'Authorization': 'Bearer %s' % access_token} #POSTS THE ACCESS TOKEN IN THE END POINT
+        response = requests.get("https://api.sandbox.wealthsimple.com/v1/%s" % endpoint,
+                                headers=headers)
+        pprint('Response: ' + response.text)
+
+# App developers credentials
+creds = {
+         "application": {
+             "name": "arash",
+             "redirect_uri": ["http://localhost:3000/callback_uri"], #CHANGE THIS TO WHATEVER REDIRECT IS BEING USED
+             "scopes": ["read"],
+             "confidential": 'true',
+             "application_family_id": 'null',
+             "integration_policy": {
+               "api_version": "v1",
+               "authentication": ["authorization_code", "refresh"],
+               "version": "v1"
+             }
+           }
+         }
+data_getter = HelloController(creds) #THIS CALLS THE "HELLO CONTROLLER" WHICH GETS INFO FROM THE WS API.
+# Replace 'users' with whichever endpoint you want to call
+#data_getter.get_data('bank_accounts') #THIS IS THE DATA THAT WILL BE DISPLAYED IN THE JSON FILE. FOR THIS CASE, IT IS BANK ACCOUNTS
+#jsonToPython = json.loads(jsonData)
+#disp(jsonData)
+
+#positions = securities in the system (hold stuff like assets; stocks, mutual funds etc.)
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -104,16 +174,19 @@ def index():
 # @app.route('/api/user/logout')
 
 # wealthsimple bank account related operations
-# @app.route('/api/team/increment')
-# @app.route('/api/team/decrement')
-# @app.route('/api/team/get_position') 
-# @app.route('/api/team/get_portfolios')
+#THE FOLLOWING ARE THE ENDPOINTS FOR THE FLASK AND WEALTHSIMPLE API.
+data_getter.get_data('accounts/accounts_id') #gets information on the accounts, types, currency, position etc.
+# @app.route('/api/team/increment') #come up with function later
+# @app.route('/api/team/decrement') #come up with function later
+data_getter.get_data('positions') #gets financial positions 
+data_getter.get_data('account_assignments') #gets the portfolio information of a user
 # @app.route('/api/team/set_portfolio')
-# @app.route('/api/team/members')
-# @app.route('/api/team/run_lottery')
+data_getter.get_data('users') #pulls information on the users including id, email etc.
+# @app.route('/api/team/run_lottery') #idk
+data_getter.get_data('survey_responses') #gets information on survey results and postion etc.
 
 # user interactions 
-# @app.route('/api/user/get_position')
+data_getter.get_data('positions') #gets financial positions --> use for team profile
 # @app.route('/api/user/vote_portfolio')
 # @app.route('/api/user/increment')
 # @app.route('/api/user/decrement')
