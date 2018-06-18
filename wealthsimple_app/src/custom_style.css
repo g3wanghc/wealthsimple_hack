@@ -83,3 +83,20 @@
     height: 220px;
     background: LightCyan;
 }
+
+.main-content-wrapper {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* ACTIVITY PAGE */
+
+.activity-left {
+    float: left;
+    width: 200;
+}
+
+.activity-right {
+    float: right;
+    width: 800;
+}

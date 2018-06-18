@@ -25,15 +25,26 @@ class CustomNavbar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a onClick={() => this.switchPage('dashboard')}>Wealthsimple for Teams</a>
+            <a onClick={() => this.switchPage('dashboard')}> W </a>
           </Navbar.Brand>
         </Navbar.Header>
+        <Nav pullLeft>
+          <NavItem eventKey={1} onClick={() => this.switchPage('dashboard')}>
+            Portolio
+          </NavItem>
+          <NavItem eventKey={1} onClick={() => this.switchPage('activity')}>
+            Activity
+          </NavItem>
+          <NavItem eventKey={1} onClick={() => this.switchPage('funding')}>
+            Funding
+          </NavItem>
+        </Nav>
         <Nav pullRight>
           <NavItem eventKey={1} onClick={() => this.switchPage('profile')}>
             Profile
           </NavItem>
           <NavItem eventKey={2} onClick={() => this.switchPage('settings')}>
-            Settings
+            Team Settings
           </NavItem>
           <NavItem eventKey={3} onClick={() => this.userLogOut(false)}>
             Log out

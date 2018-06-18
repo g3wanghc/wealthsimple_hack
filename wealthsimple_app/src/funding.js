@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
-import {Nav, Navbar, NavItem} from 'react-bootstrap';
+import {Nav, Navbar, NavItem, Tabs, Tab} from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './Navbar.js'
 
-class Settings extends React.Component {
+class Funding extends React.Component {
   constructor(props) {
     super(props);  
     this.userLogOut = this.userLogOut.bind(this);
@@ -21,11 +21,18 @@ class Settings extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="main-content-wrapper">
-      		TODO: add stuff about team settings 
-      	</div>
+					<Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+            <Tab eventKey={1} title="Deposit">
+              <h3>Deposit</h3>
+            </Tab>
+            <Tab eventKey={2} title="Withdrawal">
+              <h3>Withdrawal</h3>
+            </Tab>
+          </Tabs>
+				</div>
   		</div>
     );
   }
 }
 
-export default Settings;
+export default Funding;

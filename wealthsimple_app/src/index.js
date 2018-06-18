@@ -5,6 +5,8 @@ import Login from './login.js'
 import Dashboard from './Dashboard.js'
 import Profile from './profile.js'
 import Settings from './settings.js'
+import Activity from './activity.js'
+import Funding from './funding.js'
 
 import {
   BrowserRouter as Router,
@@ -46,6 +48,8 @@ class App extends React.Component {
         {this.state.currentPage === 'dashboard' && this.state.isLoggedIn ? <Dashboard loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
         {this.state.currentPage === 'profile' && this.state.isLoggedIn ? <Profile loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
         {this.state.currentPage === 'settings' && this.state.isLoggedIn ? <Settings loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
+        {this.state.currentPage === 'activity' && this.state.isLoggedIn ? <Activity loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
+        {this.state.currentPage === 'funding' && this.state.isLoggedIn ? <Funding loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
       </div>
     );
   }
