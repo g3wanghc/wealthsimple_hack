@@ -126,6 +126,22 @@
     width: 100%;
 }
 
+.activity-items {
+    width: 900px;
+}
+
+.activity-items-left {
+    float:left;
+    width:70%;
+    display: inline;
+}
+
+.activity-items-right {
+    float:right;
+    width:25%;
+    display: inline;
+}
+
 .item-space {
     margin-bottom: 15px;
 }
