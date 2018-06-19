@@ -26,6 +26,7 @@ SESSION_TOKENS = {}
 
 # -------------------------------------------------------------------
 
+# Configurations
 with open('secrets.yaml', 'r') as stream:
     try:
         secrets = yaml.load(stream)
@@ -38,6 +39,7 @@ with open('secrets.yaml', 'r') as stream:
 
 # -------------------------------------------------------------------
 
+# Database
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -69,6 +71,7 @@ init_db()
 
 # -------------------------------------------------------------------
 
+# Access Tokens, Auth
 def password_grant_tok_exch(username, password, client_id = CLIENT_ID, client_secret = CLIENT_SECRET, scope = 'read write'):
 
     payload = {
@@ -95,6 +98,7 @@ with app.app_context():
         TEAM_TOKENS[username] = password_grant_tok_exch(username = username, password = password)
     print('teams access tokens acquired')
     
+# Dump access lokens to log 
 print(USER_TOKENS)
 print(TEAM_TOKENS)
 
@@ -122,7 +126,7 @@ scheduler.add_job(
 
 scheduler.add_job(
     func=pick_portfolio,
-    trigger=IntervalTrigger(days=1),
+    trigger=IntervalTrigger(days=7),
     id='portfolio_script',
     name='Pick the new target/portfolio for the teams',
     replace_existing=True)
