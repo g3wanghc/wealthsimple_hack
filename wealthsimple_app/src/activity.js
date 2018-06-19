@@ -66,8 +66,8 @@ class Activity extends React.Component {
 
 			<Well bsSize="large">
 				<div className="activity-bottom">
-					<div className="activity-items">
-						<Panel id="collapsible-panel-example-2" expanded="True">
+				
+				  <Panel id="collapsible-panel-example-2" expanded="True">
 		          <Panel.Heading>
 		            <Panel.Title toggle>
 		              May 30 - Funds Invested (RRSP), Assets Sold (TFSA), Funds Invested (TFSA)
@@ -127,7 +127,6 @@ class Activity extends React.Component {
 		            </Panel.Body>
 		          </Panel.Collapse>
 		        </Panel>
-	        </div>
 			</div>
 			</Well>
 		</div>
