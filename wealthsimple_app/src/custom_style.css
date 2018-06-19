@@ -1,3 +1,25 @@
+/* Page */
+
+.pageContainer {
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* Login */
+
+.loginContainer {
+    height: 750px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#loginForm {
+    width: 600px;
+}
+
+/* -------------- */
+
 .dashboard-wrapper {
 	padding-left: 300px;
 }

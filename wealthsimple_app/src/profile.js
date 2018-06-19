@@ -1,9 +1,8 @@
 import React from 'react';
-import './index.css';
 import {Nav, Navbar, NavItem, Tabs, Tab, FieldGroup, Checkbox, Radio, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
-import CustomNavbar from './Navbar.js'
+import CustomNavbar from './navbar.js'
 
 class Profile extends React.Component {
   constructor(props) {

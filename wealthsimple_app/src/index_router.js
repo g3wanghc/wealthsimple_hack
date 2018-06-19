@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import Login from './login.js'
-import Dashboard from './Dashboard.js'
+import Dashboard from './dashboard.js'
 
 const LogInWrapper = () => (
   <div>

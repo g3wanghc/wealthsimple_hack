@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Login from './login.js'
-import Dashboard from './Dashboard.js'
+import Dashboard from './dashboard.js'
 import Profile from './profile.js'
 import Settings from './settings.js'
 import Activity from './activity.js'

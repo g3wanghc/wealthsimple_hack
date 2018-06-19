@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import Helpers from './helpers.js';
 
@@ -31,32 +30,55 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <FormGroup
-            controlId="formUsername"
-          >
-          <FormControl
-            type="text"
-            value={this.state.value}
-            placeholder="Enter text"
-            onChange={this.setUsername}
-          />
-          </FormGroup>
-          <FormGroup
-            controlId="formPassword"
-          >
-          <FormControl
-            type="password"
-            value={this.state.value}
-            placeholder="Enter text"
-            onChange={this.setPassword}
-          />
-          </FormGroup>
-        </form>
-        <Button onClick={this.userLogin}>
-          Log In!
-        </Button>
+      <div class="pageContainer">
+        <div class="loginContainer">
+          <h2
+            style={{
+                textAlign: 'center',
+                marginBottom: '40px'
+            }}
+          > 
+            Sign into Squad Gains
+          </h2>
+          <div id="loginForm">
+            <form>
+              <FormGroup controlId="formUsername">
+              <FormControl
+                type="text"
+                value={this.state.value}
+                placeholder="Email address"
+                onChange={this.setUsername}
+                style={{
+                  height: '50px',
+                }}
+              />
+              </FormGroup>
+              <FormGroup controlId="formPassword">
+              <FormControl
+                type="password"
+                value={this.state.value}
+                placeholder="Password"
+                onChange={this.setPassword}
+                style={{
+                  height: '50px',
+                }}
+              />
+              </FormGroup>
+            </form>
+            <Button onClick={this.userLogin} 
+              style={{
+                width: '100px',
+                height: '50px',
+                marginTop: '25px',
+                marginLeft: '250px',
+                borderRadius: '25px'
+              }}
+              bsStyle="primary"
+            >
+              Sign In
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

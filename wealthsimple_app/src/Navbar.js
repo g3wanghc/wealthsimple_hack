@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
