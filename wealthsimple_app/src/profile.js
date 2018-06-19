@@ -88,27 +88,32 @@ class Profile extends React.Component {
 					  <Tab eventKey={2} title="Security">
 					    <h3>Security</h3>
 					    <form>
+					    	<FormGroup controlId="formControlsOldPassword">
+					    		<ControlLabel>Change password</ControlLabel>
+						      <FormControl placeholder="Enter old password" />
+						    </FormGroup>
 					    	<FormGroup controlId="formControlsNewPassword">
-						      <ControlLabel>Change password</ControlLabel>
 						      <FormControl placeholder="Enter new password" />
 						    </FormGroup>
 						    <FormGroup controlId="formControlsNewPasswordConfirm">
 						      <FormControl placeholder="Enter new password again" />
-						    </FormGroup>
-						    <FormGroup controlId="formControlsOldPassword">
-						      <FormControl placeholder="Enter old password" />
 						    </FormGroup>
 						    <Button type="submit">Save Changes</Button>
 					    </form>
 					  </Tab>
 					  <Tab eventKey={3} title="Accounts">
 					    <h3>Accounts</h3>
+					    <h4>Investment Profile</h4>
+					    <p>To change the risk level of your portfolio or how you're invested, please tell us about the change you’d like to make. You may be required to book a call with a Portfolio Manager.</p>
+					    <h4>Close account</h4>
+					    <p>Please call your Relationship Manager at +1 (855) 255-9038 to close your account.</p>
 					  </Tab>
 					  <Tab eventKey={4} title="Bank Accounts">
 					    <h3>Bank Accounts</h3>
-					  </Tab>
-					  <Tab eventKey={5} title="Beneficiaries">
-					    <h3>Beneficiaries</h3>
+					    <strong> RBC ****000</strong>
+					    <p>Added Jan 1 2018</p>
+					    <Button>Add a bank account</Button>
+					    <Button>Verify a bank document</Button>
 					  </Tab>
 					</Tabs>
 				</div>
