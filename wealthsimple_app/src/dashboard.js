@@ -3,6 +3,7 @@ import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './navbar.js'
+import Countdown from 'react-countdown-now';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -10,6 +11,14 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    var lotteryTime = new Date();
+    if (lotteryTime.getHours() > 19) {
+      lotteryTime.setDate(lotteryTime.getDate() + 1)
+    }
+    lotteryTime.setHours(20);
+    lotteryTime.setMinutes(0);
+    lotteryTime.setSeconds(0);
+
     return (
       <div>
         <CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler}/>
@@ -45,6 +54,10 @@ class Dashboard extends React.Component {
           </div>
           <div className="dashboard-right">
             <h4>Daily Lottery</h4>
+            <h3 className="lottery-text">Latest Winner: George</h3>
+            <div className="lottery-text">
+              <Countdown date={lotteryTime} />
+            </div>
           </div>
           <div className="dashboard-left-small">
             <h4>Vote on next week's Portolio</h4>
