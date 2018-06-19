@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import {Nav, Navbar, NavItem, Tabs, Tab} from 'react-bootstrap';
+import {Nav, Navbar, NavItem, Tabs, Tab, FieldGroup, Checkbox, Radio, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './Navbar.js'
@@ -21,19 +21,70 @@ class Profile extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="main-content-wrapper">
-					<Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
 					  <Tab eventKey={1} title="Profile">
-					    <h3>Your information</h3>
-					    <p>First Name</p>
-					    <p>Middle Name</p>
-					    <p>Last Name</p>
-					    <p>Email</p>
-					    <p>Phone Number</p>
-					    <p>Residential Address</p>
-					    <p>Mailing Address</p>
+					  	<div className="tab-content">
+						  	<form>
+						  		<Form inline>
+							  		<FormGroup controlId="formControlsFirstName">
+								      <ControlLabel>Name</ControlLabel>{'   '}
+								      <FormControl placeholder="First" />
+								    </FormGroup>{'   '}
+								    <FormGroup controlId="formControlsMiddleName">
+								      <FormControl placeholder="Middle" />
+								    </FormGroup>{'   '}
+								    <FormGroup controlId="formControlsLastName">
+								      <FormControl placeholder="Last" />
+								    </FormGroup>
+							    </Form>
 
-					    <h3>Employment</h3>
-					    <h3>Language Preferences</h3>
+							    <FormGroup controlId="formControlsEmail">
+							      <ControlLabel>Email</ControlLabel>
+							      <FormControl placeholder="Enter email" />
+							    </FormGroup>
+							    <FormGroup controlId="formControlsPhoneNumber">
+							      <ControlLabel>Phone Number</ControlLabel>
+							      <FormControl placeholder="Enter email" />
+							    </FormGroup>
+
+
+							    <Form inline>
+							  		<FormGroup controlId="formControlsAddress">
+								      <ControlLabel>Residential Address</ControlLabel>{'   '}
+								      <FormControl placeholder="Address" />
+								    </FormGroup>{'   '}
+								    <FormGroup controlId="formControlsCity">
+								      <FormControl placeholder="City" />
+								    </FormGroup>{'   '}
+								    <FormGroup controlId="formControlsProvince">
+								      <FormControl componentClass="select" placeholder="Province">
+								        <option value="ontario">Ontario</option>
+								        <option value="quebec">Quebec</option>
+								        <option value="bc">British Columbia</option>
+								      </FormControl>
+								    </FormGroup>{'   '}
+								    <FormGroup controlId="formControlsPostalCode">
+								      <FormControl placeholder="Postal Code" />
+								    </FormGroup>{'   '}
+							    </Form>
+
+							    <Checkbox>
+							      Mailing Address is the Residential Address
+							  	</Checkbox>
+							  	<FormGroup controlId="formControlsOccupation">
+							      <ControlLabel>Occupation</ControlLabel>
+							      <FormControl placeholder="Enter Occupation" />
+							    </FormGroup>
+							    <FormGroup controlId="formControlsLanguage">
+							      <ControlLabel>Language Preference</ControlLabel>
+							      <FormControl componentClass="select" placeholder="English">
+							        <option value="english">English</option>
+							        <option value="french">Francais</option>
+							      </FormControl>
+							    </FormGroup>
+							    <Button type="submit">Save Changes</Button>
+							  </form>
+							 </div>
 					  </Tab>
 					  <Tab eventKey={2} title="Security">
 					    <h3>Security</h3>

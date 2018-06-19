@@ -21,7 +21,7 @@ class Funding extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="main-content-wrapper">
-					<Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Deposit">
               <h3>Deposit</h3>
             </Tab>

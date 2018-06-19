@@ -100,3 +100,22 @@
     float: right;
     width: 800;
 }
+
+/* PROFILE PAGE */
+
+.tab-content {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.first-name-input {
+    width: 250px;
+}
+
+.middle-name-input {
+    width: 210px;
+}
+
+.last-name-input {
+    width: 200px;
+}
