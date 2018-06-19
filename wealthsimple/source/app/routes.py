@@ -1,5 +1,6 @@
-from flask import render_template
 from flask import g
+from flask import render_template
+from flask import request
 
 from app import app
 
@@ -90,9 +91,17 @@ with app.app_context():
 def index():
     return render_template('index.html')
 
-# user related functions - assuming team assognments are hardcoded 
-# @app.route('/api/user/login')
-# @app.route('/api/user/logout')
+@app.route('/api/user/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    __password = query_db('select password from users where username = ?', [username], one=True)
+
+    if __password and password == __password[0]:
+        response = app.response_class(response='True', status=200)
+    else:
+        response = app.response_class(response='False', status=400)
+    return response
 
 # user interactions 
 # @app.route('/api/user/vote_portfolio')
