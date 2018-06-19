@@ -1,6 +1,7 @@
 import React from 'react';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 import Helpers from './helpers.js';
+import Icon from './static/acronym.png';
 import './custom_style.css';
 
 class CustomNavbar extends React.Component {
@@ -21,13 +22,31 @@ class CustomNavbar extends React.Component {
 
   render() {
     return (
-      <Navbar>
+      <Navbar
+        style={{
+          height: '80px',
+          verticalAlign: 'middle'
+        }}
+      >
         <Navbar.Header>
           <Navbar.Brand>
-            <a onClick={() => this.switchPage('dashboard')}> W </a>
+            <img src={Icon}
+              style={{
+                width: '70px',
+                height: '70px',
+                marginTop: '5px'
+              }}
+            />
           </Navbar.Brand>
         </Navbar.Header>
-        <Nav pullLeft>
+        <Nav pullLeft
+          style={{
+                fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                fontSize: '16px',
+                marginTop: '12px',
+                fontWeight: '500'
+              }}
+        >
           <NavItem eventKey={1} onClick={() => this.switchPage('dashboard')}>
             Portolio
           </NavItem>
@@ -38,7 +57,14 @@ class CustomNavbar extends React.Component {
             Funding
           </NavItem>
         </Nav>
-        <Nav pullRight>
+        <Nav pullRight
+          style={{
+                fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                fontSize: '16px',
+                marginTop: '12px',
+                fontWeight: '500'
+              }}
+        >
           <NavItem eventKey={1} onClick={() => this.switchPage('profile')}>
             Profile
           </NavItem>

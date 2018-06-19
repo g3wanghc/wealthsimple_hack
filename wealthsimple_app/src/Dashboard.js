@@ -13,14 +13,15 @@ class Dashboard extends React.Component {
     return (
       <div>
         <CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler}/>
-        <h3 className="dashboard-wrapper">Welcome, John.</h3>
-        <div className="container">
+        <div className="container">        
           <div className="dashboard-whole">
+            <p className="dashboard-wrapper">Good evening, Andrew.</p>
             <h2>Team Stats</h2>
             <h4>Team Portolio Balance: $1000</h4>
             <h4>Total Earnings: $150</h4>
             <h4>Your Contributions: $100</h4>
           </div>
+
           <div className="dashboard-left">
           </div>
           <div className="dashboard-right">

@@ -19,7 +19,7 @@ class Activity extends React.Component {
     return (
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
-      	<div className="main-content-wrapper">
+      	<div className="container">
 					<h3>Activity</h3>
 					<div className="activity-top">
 						<div className="item-space">

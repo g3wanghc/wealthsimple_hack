@@ -19,7 +19,7 @@ class Profile extends React.Component {
     return (
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
-      	<div className="main-content-wrapper">
+      	<div className="container">
 					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
 					  <Tab eventKey={1} title="Profile">
 					  	<div className="tab-content">

@@ -19,7 +19,7 @@ class Settings extends React.Component {
     return (
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
-      	<div className="main-content-wrapper">
+      	<div className="container">
       		TODO: add stuff about team settings 
       	</div>
   		</div>
