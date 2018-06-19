@@ -84,6 +84,13 @@ class Login extends React.Component {
             >
               Sign In
             </Button>
+            <div style={{
+                marginTop: '50px',
+                marginLeft: '225px',
+                fontSize: '18px',
+              }}>
+              <a href="/"> Create an account </a>
+            </div>
           </div>
         </div>
       </div>
