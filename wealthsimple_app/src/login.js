@@ -32,14 +32,15 @@ class Login extends React.Component {
     return (
       <div class="pageContainer">
         <div class="loginContainer">
-          <h2
+          <h1
             style={{
+                fontWeight: 'bold',
                 textAlign: 'center',
                 marginBottom: '40px'
             }}
           > 
             Sign into Squad Gains
-          </h2>
+          </h1>
           <div id="loginForm">
             <form>
               <FormGroup controlId="formUsername">
@@ -49,7 +50,8 @@ class Login extends React.Component {
                 placeholder="Email address"
                 onChange={this.setUsername}
                 style={{
-                  height: '50px',
+                  fontSize: '16px',
+                  height: '60px',
                 }}
               />
               </FormGroup>
@@ -60,7 +62,8 @@ class Login extends React.Component {
                 placeholder="Password"
                 onChange={this.setPassword}
                 style={{
-                  height: '50px',
+                  fontSize: '16px',
+                  height: '60px',
                 }}
               />
               </FormGroup>
@@ -68,10 +71,13 @@ class Login extends React.Component {
             <Button onClick={this.userLogin} 
               style={{
                 width: '100px',
-                height: '50px',
+                height: '60px',
                 marginTop: '25px',
                 marginLeft: '250px',
-                borderRadius: '25px'
+                borderRadius: '25px',
+                fontSize: '18px',
+                backgroundImage: 'none',
+                backgroundColor: 'black',
               }}
               bsStyle="primary"
             >
