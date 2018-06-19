@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import Helpers from './helpers.js';
+import Logo from './static/logo.png';
 
 class Login extends React.Component {
   constructor(props) {
@@ -32,15 +33,15 @@ class Login extends React.Component {
     return (
       <div class="pageContainer">
         <div class="loginContainer">
-          <h1
-            style={{
-                fontWeight: 'bold',
-                textAlign: 'center',
-                marginBottom: '40px'
-            }}
-          > 
-            Sign into Squad Gains
-          </h1>
+          <img src={Logo}
+              style={{
+                width: '200px',
+                height: '200px',
+                marginBottom: '50px',
+                marginLeft: '200px'
+              }}
+            />
+
           <div id="loginForm">
             <form>
               <FormGroup controlId="formUsername">
