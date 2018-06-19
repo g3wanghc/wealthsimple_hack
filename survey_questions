@@ -1,0 +1,85 @@
+# question-portfolio-category
+
+"question": {
+                "id": "question-portfolio-category",
+                "type": "radio",
+                "section": "Investment profile",
+                "text": "If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?",
+                "subtext": "This helps us better understand your investing preferences and experience.",
+                "optional": false,
+                "answered": false
+            },
+            "answers": [
+                {
+                    "id": "answer-26",
+                    "text": "Invest in many different stocks",
+                    "value": false
+                },
+                {
+                    "id": "answer-27",
+                    "text": "Invest in many different bonds",
+                    "value": false
+                },
+                {
+                    "id": "answer-25",
+                    "text": "Invest all my money in one stock or bond",
+                    "value": false
+                },
+                {
+                    "id": "answer-28",
+                    "text": "Invest in many different stocks and bonds",
+                    "value": false
+                }
+
+
+
+{
+            "question": {
+                "id": "question-risk-comfortability",
+                "type": "radio",
+                "section": "Investment profile",
+                "text": "If you were to invest %s, which scenario would you be happiest with?",
+                "subtext": "Investing comes with risk. There’s no right or wrong answer, it’s more about what you feel comfortable with.",
+                "optional": false,
+                "answered": false
+            },
+            "answers": [
+                {
+                    "id": "answer-41",
+                    "text": "I can take some losses (%s) to earn more long term (%s)",
+                    "value": false
+                },
+                {
+                    "id": "answer-40",
+                    "text": "I'm willing to take small losses (%s) to earn a little long term (%s)",
+                    "value": false
+                },
+                {
+                    "id": "answer-42",
+                    "text": "I'm comfortable with losses (%s) to maximize what I earn long term (%s)",
+                    "value": false
+                }
+            ],
+            "actions": [
+                {
+                    "operator": "gains_and_loss_percentages_with_savings",
+                    "params": {
+                        "initial_savings": {
+                            "type": "answer",
+                            "id": "answer-65",
+                            "key": "value"
+                        },
+                        "assets": {
+                            "type": "answer",
+                            "id": "answer-38",
+                            "key": "value"
+                        },
+                        "debts": {
+                            "type": "answer",
+                            "id": "answer-39",
+                            "key": "value"
+                        }
+                    }
+                }
+            ]
+        },
