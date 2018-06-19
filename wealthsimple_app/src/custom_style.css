@@ -134,10 +134,6 @@ html, body {
     width: 100%;
 }
 
-.activity-items {
-    width: 900px;
-}
-
 .activity-items-left {
     float:left;
     width:70%;
