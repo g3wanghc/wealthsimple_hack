@@ -89,16 +89,23 @@
     margin-right: 15%;
 }
 
-/* ACTIVITY PAGE */
-
-.activity-left {
-    float: left;
-    width: 200;
+.navbar.navbar-default {
+  border-bottom: none;
 }
 
-.activity-right {
-    float: right;
-    width: 800;
+/* ACTIVITY PAGE */
+
+.activity-top {
+    text-align: center;
+    align-content: center;
+}
+
+.activity-bottom {
+    width: 100%;
+}
+
+.item-space {
+    margin-bottom: 15px;
 }
 
 /* PROFILE PAGE */
