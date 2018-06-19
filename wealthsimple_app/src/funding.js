@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav, Navbar, NavItem, Tabs, Tab, FormGroup, ControlLabel, FormControl, FromGroup, Button} from 'react-bootstrap';
+import {Nav, Navbar, NavItem, Tabs, Tab, FormGroup, ControlLabel, FormControl, FromGroup, Button, Well} from 'react-bootstrap';
 import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './navbar.js'
@@ -26,58 +26,62 @@ class Funding extends React.Component {
       	<div className="container">
 					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Deposit">
-              <h3>Deposit</h3>
-              <form>
-                <FormGroup controlId="formControlsFromAccount">
-                  <ControlLabel>From</ControlLabel>
-                  <FormControl componentClass="select" placeholder="Choose Account">
-                    {this.state.bankAccounts.map(function(item, i){
-                      console.log('test');
-                      return <option key={i}>{item}</option>
-                    })}
-                  </FormControl>
-                </FormGroup>
-                <FormGroup controlId="formControlsToAccount">
-                  <ControlLabel>To</ControlLabel>
-                  <FormControl componentClass="select" placeholder="Choose Account">
-                    {this.state.investmentAccounts.map(function(item, i){
-                      console.log('test');
-                      return <option key={i}>{item}</option>
-                    })}
-                  </FormControl>
-                </FormGroup>
-                <FormGroup controlId="formControlsDepositAmount">
-                  <FormControl placeholder="Enter amount to deposit" />
-                </FormGroup>
-                <Button type="submit">Deposit</Button>
-              </form>
+              <Well bsSize="large">
+                <h3>Deposit</h3>
+                <form>
+                  <FormGroup controlId="formControlsFromAccount">
+                    <ControlLabel>From</ControlLabel>
+                    <FormControl componentClass="select" placeholder="Choose Account">
+                      {this.state.bankAccounts.map(function(item, i){
+                        console.log('test');
+                        return <option key={i}>{item}</option>
+                      })}
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="formControlsToAccount">
+                    <ControlLabel>To</ControlLabel>
+                    <FormControl componentClass="select" placeholder="Choose Account">
+                      {this.state.investmentAccounts.map(function(item, i){
+                        console.log('test');
+                        return <option key={i}>{item}</option>
+                      })}
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="formControlsDepositAmount">
+                    <FormControl placeholder="Enter amount to deposit" />
+                  </FormGroup>
+                  <Button type="submit">Deposit</Button>
+                </form>
+              </Well>
             </Tab>
             <Tab eventKey={2} title="Withdrawal">
-              <h3>Withdrawal</h3>
-              <form>
-                <FormGroup controlId="formControlsFromAccount">
-                  <ControlLabel>From</ControlLabel>
-                  <FormControl componentClass="select" placeholder="Choose Account">
-                    {this.state.investmentAccounts.map(function(item, i){
-                      console.log('test');
-                      return <option key={i}>{item}</option>
-                    })}
-                  </FormControl>
-                </FormGroup>
-                <FormGroup controlId="formControlsToAccount">
-                  <ControlLabel>To</ControlLabel>
-                  <FormControl componentClass="select" placeholder="Choose Account">
-                    {this.state.bankAccounts.map(function(item, i){
-                      console.log('test');
-                      return <option key={i}>{item}</option>
-                    })}
-                  </FormControl>
-                </FormGroup>
-                <FormGroup controlId="formControlsWithdrawalAmount">
-                  <FormControl placeholder="Enter amount to withdraw" />
-                </FormGroup>
-                <Button type="submit">Withdraw</Button>
-              </form>
+              <Well bsSize="large">
+                <h3>Withdrawal</h3>
+                <form>
+                  <FormGroup controlId="formControlsFromAccount">
+                    <ControlLabel>From</ControlLabel>
+                    <FormControl componentClass="select" placeholder="Choose Account">
+                      {this.state.investmentAccounts.map(function(item, i){
+                        console.log('test');
+                        return <option key={i}>{item}</option>
+                      })}
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="formControlsToAccount">
+                    <ControlLabel>To</ControlLabel>
+                    <FormControl componentClass="select" placeholder="Choose Account">
+                      {this.state.bankAccounts.map(function(item, i){
+                        console.log('test');
+                        return <option key={i}>{item}</option>
+                      })}
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="formControlsWithdrawalAmount">
+                    <FormControl placeholder="Enter amount to withdraw" />
+                  </FormGroup>
+                  <Button type="submit">Withdraw</Button>
+                </form>
+              </Well>
             </Tab>
           </Tabs>
 				</div>
