@@ -3,12 +3,14 @@ DROP TABLE if exists teams;
 DROP TABLE if exists transactions;
 
 CREATE TABLE users (
+  id TEXT,
   username TEXT,
   password TEXT,
   display_name TEXT
 );
 
 CREATE TABLE teams (
+  id TEXT,
   team_name TEXT,
   username TEXT,
   password TEXT,
@@ -29,20 +31,22 @@ CREATE TABLE transactions (
 -- testing data 
 
 INSERT INTO users (
+  id,
   username,
   password,
   display_name
 )
 VALUES
-  ("hackthesix+user+1@wealthsimple.com", "hackthesix!","Tony Stark"),
-  ("hackthesix+user+2@wealthsimple.com", "hackthesix!","Hanchen Wang"),
-  ("hackthesix+user+3@wealthsimple.com", "hackthesix!","Arash Nourimand"),
-  ("hackthesix+user+4@wealthsimple.com", "hackthesix!","Light Yagami"),
-  ("hackthesix+user+5@wealthsimple.com", "hackthesix!","Obi-Wan Kenobi"),
-  ("hackthesix+user+6@wealthsimple.com", "hackthesix!","Big-Daddy Charlie");
+  ("user-g4v1qpkp0gu", "hackthesix+user+1@wealthsimple.com", "hackthesix!","Tony Stark"),
+  ("user-mx0g9u59_dg", "hackthesix+user+2@wealthsimple.com", "hackthesix!","Hanchen Wang"),
+  ("user-r6aigkhwgmy", "hackthesix+user+3@wealthsimple.com", "hackthesix!","Arash Nourimand"),
+  ("user-rhv9gkzmulk", "hackthesix+user+4@wealthsimple.com", "hackthesix!","Light Yagami"),
+  ("user-rifbipqd7vi", "hackthesix+user+5@wealthsimple.com", "hackthesix!","Obi-Wan Kenobi"),
+  ("user-ly0rov2pr1u", "hackthesix+user+6@wealthsimple.com", "hackthesix!","Big-Daddy Charlie");
 
 
 INSERT INTO teams (
+  id,
   team_name,
   username,
   password,
@@ -50,8 +54,8 @@ INSERT INTO teams (
   members
 )
 VALUES
-  ("Team Jacob", "hackthesix+user+7@wealthsimple.com", "hackthesix!", "Hanchen Wang", '["Hanchen Wang", "Tony Stark", "Light Yagami"]'), 
-  ("Team Edward", "hackthesix+user+8@wealthsimple.com", "hackthesix!", "Arash Nourimand", '["Arash Nourimand", "Obi-Wan Kenobi", "Big-Daddy Charlie"]');
+  ("user-cin71bhzcye", "Team Jacob", "hackthesix+user+7@wealthsimple.com", "hackthesix!", "Hanchen Wang", '["Hanchen Wang", "Tony Stark", "Light Yagami"]'), 
+  ("user-llfhajuzjwa", "Team Edward", "hackthesix+user+8@wealthsimple.com", "hackthesix!", "Arash Nourimand", '["Arash Nourimand", "Obi-Wan Kenobi", "Big-Daddy Charlie"]');
 
 
 INSERT INTO transactions (

@@ -1,15 +1,22 @@
+from flask import Flask
 from flask import g
 from flask import render_template
 from flask import request
 
 from app import app
 
+import atexit
 import json
 import requests
 import sqlite3
 import yaml
 
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.interval import IntervalTrigger
+
 from secrets import token_hex
+
+flask_app = Flask(__name__)
 
 DATABASE = 'database.db'
 
@@ -88,6 +95,42 @@ with app.app_context():
         TEAM_TOKENS[username] = password_grant_tok_exch(username = username, password = password)
     print('teams access tokens acquired')
     
+print(USER_TOKENS)
+print(TEAM_TOKENS)
+
+# -------------------------------------------------------------------
+
+# Daily Tasks
+
+def run_lottery():
+    # TODO
+    print('run lottery')
+
+def pick_portfolio():
+    # TODO
+    print('pick portfolio')
+
+scheduler = BackgroundScheduler()
+scheduler.start()
+
+scheduler.add_job(
+    func=run_lottery,
+    trigger=IntervalTrigger(days=1),
+    id='lottery_script',
+    name='Run the daily lottery on registered teams',
+    replace_existing=True)
+
+scheduler.add_job(
+    func=pick_portfolio,
+    trigger=IntervalTrigger(days=1),
+    id='portfolio_script',
+    name='Pick the new target/portfolio for the teams',
+    replace_existing=True)
+
+# TODO: Add token refreshers
+
+atexit.register(lambda: scheduler.shutdown())
+
 # -------------------------------------------------------------------
 
 @app.route('/')
@@ -124,18 +167,30 @@ def logout():
         response = app.response_class(response='Error', status=400)
     return response
 
-# user interactions 
-@app.route('/api/user/position', methods=['POST'])
-def get_user_position():
-    pass
+# @app.route('/api/user/position')
+# retrieve historical positions
 
 # @app.route('/api/user/vote_portfolio')
+# vote on the team's question-portfolio-category and question-risk-comfortability
+
 # @app.route('/api/user/increment')
+# deposit personal account 
+
 # @app.route('/api/user/decrement')
+# remove money to personal account 
 
 # wealthsimple bank account related operations
-# @app.route('/api/team/increment') #come up with function later
-# @app.route('/api/team/decrement') #come up with function later
-# @app.route('/api/team/set_portfolio')
-# @app.route('/api/team/run_lottery') #idk
+# @app.route('/api/team/increment')
+# deposit team account
 
+# @app.route('/api/team/decrement') #come up with function later
+# withdrawal team account
+
+# @app.route('/api/team/lottery')
+# enable/disable lottery
+
+# @app.route('/api/team/position')
+# retrieve historical positions
+
+# @app.route('/api/team/transactions')
+# retrieve historical transactions
