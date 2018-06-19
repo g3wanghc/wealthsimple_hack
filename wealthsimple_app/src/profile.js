@@ -84,10 +84,23 @@ class Profile extends React.Component {
 							    </FormGroup>
 							    <Button type="submit">Save Changes</Button>
 							  </form>
-							 </div>
+							</div>
 					  </Tab>
 					  <Tab eventKey={2} title="Security">
 					    <h3>Security</h3>
+					    <form>
+					    	<FormGroup controlId="formControlsNewPassword">
+						      <ControlLabel>Change password</ControlLabel>
+						      <FormControl placeholder="Enter new password" />
+						    </FormGroup>
+						    <FormGroup controlId="formControlsNewPasswordConfirm">
+						      <FormControl placeholder="Enter new password again" />
+						    </FormGroup>
+						    <FormGroup controlId="formControlsOldPassword">
+						      <FormControl placeholder="Enter old password" />
+						    </FormGroup>
+						    <Button type="submit">Save Changes</Button>
+					    </form>
 					  </Tab>
 					  <Tab eventKey={3} title="Accounts">
 					    <h3>Accounts</h3>
