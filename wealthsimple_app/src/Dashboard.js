@@ -16,10 +16,28 @@ class Dashboard extends React.Component {
         <div className="container">        
           <div className="dashboard-whole">
             <p className="dashboard-wrapper">Good evening, Andrew.</p>
-            <h2>Databaes - Boys Band</h2>
-            <h4>Team Portolio Balance: $1000</h4>
-            <h4>Total Earnings: $150</h4>
-            <h4>Your Contributions: $100</h4>
+            <h2>Databaes - Data Flows</h2>
+            
+            <div style={{
+              float: 'left',
+            }}>
+              <h5>Team Portolio Balance</h5>
+              <h2>$526.93</h2>
+            </div>
+            <div style={{
+              float: 'left',
+              marginLeft: '50px',
+            }}>
+              <h5>Total Earnings</h5>
+              <h2>$26.93</h2>
+            </div>
+            <div style={{
+              float: 'left',
+              marginLeft: '50px'
+            }}>
+              <h5>Your Contributions</h5>
+              <h2>$150.00</h2>
+            </div>
           </div>
 
           <div className="dashboard-left">
