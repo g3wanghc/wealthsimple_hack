@@ -20,6 +20,13 @@ class Settings extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="container">
+          <p style={{
+            fontSize: '22px',
+            marginTop: '10px',
+            marginBottom: '30px'
+          }}>
+              Team Settings
+          </p>
           <Well bsSize="large">
             <h3>Goals</h3>
             <Form inline>

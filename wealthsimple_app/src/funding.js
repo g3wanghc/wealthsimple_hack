@@ -24,6 +24,13 @@ class Funding extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="container">
+          <p style={{
+            fontSize: '22px',
+            marginTop: '10px',
+            marginBottom: '30px'
+          }}>
+            Funding
+          </p>
 					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Deposit">
               <Well bsSize="large">

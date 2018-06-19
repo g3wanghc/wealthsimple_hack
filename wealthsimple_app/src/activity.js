@@ -20,7 +20,13 @@ class Activity extends React.Component {
       <div>
       	<CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
       	<div className="container">
-			<h3>Activity</h3>
+			<p style={{
+				fontSize: '22px',
+				marginTop: '10px',
+				marginBottom: '30px'
+			}}>
+				Activity
+			</p>
 			<Well bsSize="large">
 				<div className="activity-top">
 					<div className="item-space">
@@ -61,7 +67,7 @@ class Activity extends React.Component {
 			<Well bsSize="large">
 				<div className="activity-bottom">
 					<div className="activity-items">
-						<Panel id="collapsible-panel-example-2">
+						<Panel id="collapsible-panel-example-2" expanded="True">
 		          <Panel.Heading>
 		            <Panel.Title toggle>
 		              May 30 - Funds Invested (RRSP), Assets Sold (TFSA), Funds Invested (TFSA)
@@ -88,7 +94,7 @@ class Activity extends React.Component {
 		            </Panel.Body>
 		          </Panel.Collapse>
 		        </Panel>
-		        <Panel id="collapsible-panel-example-2">
+		        <Panel id="collapsible-panel-example-2" expanded="True">
 		          <Panel.Heading>
 		            <Panel.Title toggle>
 		              May 29 - Funds Invested (TFSA), Funds Invested (TFSA), Assets Sold (TFSA)
