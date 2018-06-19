@@ -9,10 +9,13 @@ import requests
 import sqlite3
 import yaml
 
+from secrets import token_hex
+
 DATABASE = 'database.db'
 
 USER_TOKENS = {}
 TEAM_TOKENS = {}
+SESSION_TOKENS = {}
 
 # -------------------------------------------------------------------
 
@@ -97,13 +100,35 @@ def login():
     password = request.form['password']
     __password = query_db('select password from users where username = ?', [username], one=True)
 
-    if __password and password == __password[0]:
-        response = app.response_class(response='True', status=200)
+    if __password and password == __password[0] and username:
+        session_token = token_hex(16)
+        content = str({
+            'session_token': session_token
+            })
+        # only the last session will be active
+        SESSION_TOKENS[username] = session_token
+        response = app.response_class(response=content, status=200)
     else:
-        response = app.response_class(response='False', status=400)
+        response = app.response_class(response='Error', status=400)
+    return response
+
+@app.route('/api/user/logout', methods=['POST'])
+def logout():
+    username = request.form['username']
+    session_token = request.form['session_token']
+
+    if username in SESSION_TOKENS and SESSION_TOKENS[username] == session_token:
+        del SESSION_TOKENS[username]
+        response = app.response_class(response='Ok', status=200)
+    else:
+        response = app.response_class(response='Error', status=400)
     return response
 
 # user interactions 
+@app.route('/api/user/position', methods=['POST'])
+def get_user_position():
+    pass
+
 # @app.route('/api/user/vote_portfolio')
 # @app.route('/api/user/increment')
 # @app.route('/api/user/decrement')
