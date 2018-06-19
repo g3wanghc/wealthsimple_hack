@@ -8,7 +8,7 @@ class Funding extends React.Component {
   constructor(props) {
     super(props);  
     this.state = { 
-      bankAccounts: ["RBC (****000)", "Tangerine (****001"],
+      bankAccounts: ["RBC (****000)", "Tangerine (****001)"],
       investmentAccounts: ["Investment Account A", "Investment Account B"]
     };
     this.userLogOut = this.userLogOut.bind(this);
@@ -58,15 +58,19 @@ class Funding extends React.Component {
                 <FormGroup controlId="formControlsFromAccount">
                   <ControlLabel>From</ControlLabel>
                   <FormControl componentClass="select" placeholder="Choose Account">
-                    <option value="teamaccount1">Team Account 1</option>
-                    <option value="teamaccount2">Team Account 2</option>
+                    {this.state.investmentAccounts.map(function(item, i){
+                      console.log('test');
+                      return <option key={i}>{item}</option>
+                    })}
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="formControlsToAccount">
                   <ControlLabel>To</ControlLabel>
                   <FormControl componentClass="select" placeholder="Choose Account">
-                    <option value="bankaccount1">Bank Account 1</option>
-                    <option value="bankaccount2">Bank Account 2</option>
+                    {this.state.bankAccounts.map(function(item, i){
+                      console.log('test');
+                      return <option key={i}>{item}</option>
+                    })}
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="formControlsWithdrawalAmount">
