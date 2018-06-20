@@ -98,20 +98,6 @@ html, body {
     border-radius: 10px;
 }
 
-.dashboard-left-well {
-    width: 750px;
-    float: left;
-}
-
-.dashboard-right-well {
-    width: 370px;
-    float: right;
-}
-
-.dashboard-full-well {
-    width: 100%;
-}
-
 .navbar.navbar-default {
   margin-bottom: none;
   border-bottom: none;
