@@ -104,7 +104,7 @@ print(TEAM_TOKENS)
 
 # -------------------------------------------------------------------
 
-# Daily Tasks
+# Tasks
 
 def run_lottery():
     # TODO
@@ -130,8 +130,6 @@ scheduler.add_job(
     id='portfolio_script',
     name='Pick the new target/portfolio for the teams',
     replace_existing=True)
-
-# TODO: Add token refreshers
 
 atexit.register(lambda: scheduler.shutdown())
 
@@ -172,9 +170,9 @@ def logout():
     return response
 
 # @app.route('/api/user/position')
-# retrieve historical positions
+# retrieve historical positions and user information
 
-# @app.route('/api/user/vote_portfolio')
+# @app.route('/api/user/update')
 # vote on the team's question-portfolio-category and question-risk-comfortability
 
 # @app.route('/api/user/increment')
@@ -191,7 +189,7 @@ def logout():
 # withdrawal team account
 
 # @app.route('/api/team/lottery')
-# enable/disable lottery
+# enable/disable lottery settings
 
 # @app.route('/api/team/position')
 # retrieve historical positions
