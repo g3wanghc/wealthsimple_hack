@@ -42,7 +42,6 @@ class Funding extends React.Component {
                     <ControlLabel>From</ControlLabel>
                     <FormControl componentClass="select" placeholder="Choose Account">
                       {this.state.bankAccounts.map(function(item, i){
-                        console.log('test');
                         return <option key={i}>{item}</option>
                       })}
                     </FormControl>
@@ -51,7 +50,6 @@ class Funding extends React.Component {
                     <ControlLabel>To</ControlLabel>
                     <FormControl componentClass="select" placeholder="Choose Account">
                       {this.state.investmentAccounts.map(function(item, i){
-                        console.log('test');
                         return <option key={i}>{item}</option>
                       })}
                     </FormControl>
@@ -71,7 +69,6 @@ class Funding extends React.Component {
                     <ControlLabel>From</ControlLabel>
                     <FormControl componentClass="select" placeholder="Choose Account">
                       {this.state.investmentAccounts.map(function(item, i){
-                        console.log('test');
                         return <option key={i}>{item}</option>
                       })}
                     </FormControl>
@@ -80,7 +77,6 @@ class Funding extends React.Component {
                     <ControlLabel>To</ControlLabel>
                     <FormControl componentClass="select" placeholder="Choose Account">
                       {this.state.bankAccounts.map(function(item, i){
-                        console.log('test');
                         return <option key={i}>{item}</option>
                       })}
                     </FormControl>

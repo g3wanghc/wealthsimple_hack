@@ -11,9 +11,23 @@ class Dashboard extends React.Component {
     super(props);
     this.state = { 
       bankAccounts: ["RBC (**** **** **** 000)", "Tangerine (**** **** **** 001)"],
-      investmentAccounts: ["Databaes - First Record Fund"]
+      investmentAccounts: ["Databaes - First Record Fund"],
+      depositAmount: 0
     };
+
+    this.handleDepositSubmission = this.handleDepositSubmission.bind(this);
+    this.handleBalanceChange = this.handleBalanceChange.bind(this);
   }  
+
+  handleDepositSubmission() {
+    console.log("submitting deposit");
+    console.log(this.state);
+    this.props.balanceHandler(this.state.depositAmount);
+  }
+
+  handleBalanceChange(e) {
+    this.setState({ depositAmount: Number(e.target.value) });
+  }
 
   renderer ({ hours, minutes, seconds, completed }) {
       return <span>{hours} hours {minutes} mins {seconds} secs</span>;
@@ -39,7 +53,7 @@ class Dashboard extends React.Component {
               float: 'left',
             }}>
               <h5>Team Portolio Balance</h5>
-              <h2>$526.93</h2>
+              <h2>${Math.round(this.props.getState().teamPorfolioBalance * 100) / 100}</h2>
             </div>
             <div style={{
               float: 'left',
@@ -53,7 +67,7 @@ class Dashboard extends React.Component {
               marginLeft: '50px'
             }}>
               <h5>Your Contributions</h5>
-              <h2>$150.00</h2>
+              <h2>${Math.round(this.props.getState().yourContributions * 100) / 100}</h2>
             </div>
             <iframe 
               style={{
@@ -115,9 +129,9 @@ class Dashboard extends React.Component {
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="formControlsDepositAmount">
-                  <FormControl placeholder="Amount" />
+                  <FormControl placeholder="Amount" onChange={this.handleBalanceChange}/>
                 </FormGroup>
-                <Button>Contribute</Button>
+                <Button onClick={this.handleDepositSubmission}>Contribute</Button>
               </div>
           </div>
           <div className="dashboard-left" style={{
