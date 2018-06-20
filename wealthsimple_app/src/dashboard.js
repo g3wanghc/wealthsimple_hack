@@ -107,7 +107,7 @@ class Dashboard extends React.Component {
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="formControlsToAccount">
-                  <h5>From</h5>
+                  <h5>To</h5>
                   <FormControl componentClass="select" placeholder="Choose Account">
                     {this.state.investmentAccounts.map(function(item, i){
                       return <option key={i}>{item}</option>
