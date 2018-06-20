@@ -4,6 +4,7 @@ import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './navbar.js'
 import Countdown from 'react-countdown-now';
+import {AreaChart} from 'react-easy-chart';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -51,6 +52,39 @@ class Dashboard extends React.Component {
 
           <div className="dashboard-left">
             <h4>Milestones</h4>
+            <AreaChart
+              xType={'time'}
+              axes
+              dataPoints
+              xTicks={5}
+              yTicks={3}
+              grid
+              tickTimeDisplayFormat={'%m %y'}
+              interpolate={'cardinal'}
+              width={650}
+              height={250}
+              data={[
+                [
+                  { x: '1-Jan-18', y: 527 },
+                  { x: '1-Jan-19', y: 553 },
+                  { x: '1-Jan-20', y: 581 },
+                  { x: '1-Jan-21', y: 611 },
+                  { x: '1-Jan-22', y: 642 }
+                ], [
+                  { x: '1-Jan-18', y: 300 },
+                  { x: '1-Jan-19', y: 315 },
+                  { x: '1-Jan-20', y: 331 },
+                  { x: '1-Jan-21', y: 348 },
+                  { x: '1-Jan-22', y: 366 }
+                ], [
+                  { x: '1-Jan-18', y: 150 },
+                  { x: '1-Jan-19', y: 158 },
+                  { x: '1-Jan-20', y: 166 },
+                  { x: '1-Jan-21', y: 175 },
+                  { x: '1-Jan-22', y: 184 }
+                ]
+              ]}
+            />
           </div>
           <div className="dashboard-right">
             <h4>Daily Lottery</h4>
