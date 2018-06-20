@@ -35,7 +35,6 @@ class Profile extends React.Component {
                     <div className="white-box">
                         <h3>Profile</h3>
                         <form>
-                            <Form inline>
                                 <FormGroup controlId="formControlsFirstName">
                                   <ControlLabel>Name</ControlLabel>{'   '}
                                   <FormControl placeholder="First" />
@@ -46,7 +45,6 @@ class Profile extends React.Component {
                                 <FormGroup controlId="formControlsLastName">
                                   <FormControl placeholder="Last" />
                                 </FormGroup>
-                            </Form>
 
                             <FormGroup controlId="formControlsEmail">
                               <ControlLabel>Email</ControlLabel>
@@ -58,7 +56,6 @@ class Profile extends React.Component {
                             </FormGroup>
 
 
-                            <Form inline>
                                 <FormGroup controlId="formControlsAddress">
                                   <ControlLabel>Residential Address</ControlLabel>{'   '}
                                   <FormControl placeholder="Address" />
@@ -76,7 +73,6 @@ class Profile extends React.Component {
                                 <FormGroup controlId="formControlsPostalCode">
                                   <FormControl placeholder="Postal Code" />
                                 </FormGroup>{'   '}
-                            </Form>
 
                             <Checkbox>
                               Mailing Address is the Residential Address
