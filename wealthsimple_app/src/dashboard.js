@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
       bankAccounts: ["RBC (**** **** **** 000)", "Tangerine (**** **** **** 001)"],
       investmentAccounts: ["Databaes - First Record Fund"]
     };
-  }
+  }  
 
   renderer ({ hours, minutes, seconds, completed }) {
       return <span>{hours} hours {minutes} mins {seconds} secs</span>;
@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
               <Area type='monotone' dataKey='Go' stackId="1" stroke='#ffc658' fill='#ffc658' />
             </AreaChart>
             <br></br>
-            <h4> New Drum Set: $750 </h4>
+            {this.props.getState().goalAmount > 0 ? <h4>Milestone: {this.props.getState().goalName} - ${this.props.getState().goalAmount}</h4> : null}
           </div>
           <div className="dashboard-right">
             <div style={{
@@ -102,7 +102,6 @@ class Dashboard extends React.Component {
                   <h5>From</h5>
                   <FormControl componentClass="select" placeholder="Choose Account">
                     {this.state.bankAccounts.map(function(item, i){
-                      console.log('test');
                       return <option key={i}>{item}</option>
                     })}
                   </FormControl>
@@ -111,7 +110,6 @@ class Dashboard extends React.Component {
                   <h5>From</h5>
                   <FormControl componentClass="select" placeholder="Choose Account">
                     {this.state.investmentAccounts.map(function(item, i){
-                      console.log('test');
                       return <option key={i}>{item}</option>
                     })}
                   </FormControl>

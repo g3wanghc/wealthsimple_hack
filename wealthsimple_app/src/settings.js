@@ -6,13 +6,36 @@ import CustomNavbar from './navbar.js'
 
 class Settings extends React.Component {
   constructor(props) {
-    super(props);  
+    super(props);
+
+    this.state = {
+      goal: null,
+      goalAmount: 1
+    }
+
     this.userLogOut = this.userLogOut.bind(this);
+    this.handleGoalSubmission = this.handleGoalSubmission.bind(this);
+    this.handleGoalNameChange = this.handleGoalNameChange.bind(this);
+    this.handleGoalAmountChange = this.handleGoalAmountChange.bind(this);
   }
 
   userLogOut() {
     console.log("userLogout is called");
     this.props.loginHandler(false);
+  }
+
+  handleGoalSubmission() {
+    console.log("submitting new goal");
+    console.log(this.state);
+    this.props.goalHandler(this.state.goal, this.state.goalAmount);
+  }
+
+  handleGoalNameChange(e) {
+    this.setState({ goal: e.target.value });
+  }
+
+  handleGoalAmountChange(e) {
+    this.setState({ goalAmount: e.target.value });
   }
 
   render() {
@@ -31,17 +54,17 @@ class Settings extends React.Component {
           </p>
           <div className="white-box">
             <h3>Goals</h3>
-            <Form inline>
+            <form>
               <FormGroup controlId="formInlineGoal">
                 <ControlLabel>Goal</ControlLabel>{' '}
-                <FormControl type="text" placeholder="Enter goal" />
+                <FormControl type="text" placeholder="Enter goal" onChange={this.handleGoalNameChange} />
               </FormGroup>{' '}
-              <FormGroup controlId="formInlineEmail">
+              <FormGroup controlId="formInlineGoalAmount">
                 <ControlLabel>Amount</ControlLabel>{' '}
-                <FormControl type="email" placeholder="Enter goal amount" />
+                <FormControl placeholder="Enter goal amount" onChange={this.handleGoalAmountChange}  />
               </FormGroup>{' '}
-              <Button type="submit">Add goal</Button>
-            </Form>
+              <Button onClick={this.handleGoalSubmission}>Add goal</Button>
+            </form>
           </div>
           <div className="white-box">
             <h3>Lottery Settings</h3>
