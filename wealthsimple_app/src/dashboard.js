@@ -5,7 +5,6 @@ import './custom_style.css';
 import CustomNavbar from './navbar.js'
 import Countdown from 'react-countdown-now';
 import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
-import {Forecast} from 'react-forecast';
 
 class Dashboard extends React.Component {
   constructor(props) {
