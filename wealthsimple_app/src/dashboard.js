@@ -71,28 +71,28 @@ class Dashboard extends React.Component {
               <form>
                 <FormGroup>
                   <ControlLabel>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</ControlLabel>
-                  <Radio name="answer-26">
+                  <Radio name="radioGroup">
                     Invest in many different stocks.
                   </Radio>{' '}
-                  <Radio name="answer-27">
+                  <Radio name="radioGroup">
                     Invest in many different bonds.
                   </Radio>{' '}
-                  <Radio name="answer-25">
+                  <Radio name="radioGroup">
                     Invest all my money in one stock or bond.
                   </Radio>
-                  <Radio name="answer-28">
+                  <Radio name="radioGroup">
                     Invest in many different stocks and bonds
                   </Radio>
                 </FormGroup>
                 <FormGroup>
                   <ControlLabel>If you were to invest %s, which scenario would you be happiest with?</ControlLabel>
-                  <Radio name="answer-41">
+                  <Radio name="radioGroup2">
                     I can take some losses (%s) to earn more long term (%s).
                   </Radio>{' '}
-                  <Radio name="answer-40">
+                  <Radio name="radioGroup2">
                     I'm willing to take small losses (%s) to earn a little long term (%s).
                   </Radio>{' '}
-                  <Radio name="answer-42">
+                  <Radio name="radioGroup2">
                     I'm comfortable with losses (%s) to maximize what I earn long term (%s).
                   </Radio>
                 </FormGroup>
