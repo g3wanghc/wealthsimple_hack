@@ -27,7 +27,7 @@ class Settings extends React.Component {
           }}>
               Team Settings
           </p>
-          <Well bsSize="large">
+          <div className="white-box">
             <h3>Goals</h3>
             <Form inline>
               <FormGroup controlId="formInlineGoal">
@@ -40,12 +40,12 @@ class Settings extends React.Component {
               </FormGroup>{' '}
               <Button type="submit">Add goal</Button>
             </Form>
-          </Well>
-          <Well bsSize="large">
+          </div>
+          <div className="white-box">
             <h3>Lottery Settings</h3>
-          </Well>
+          </div>
    
-          <Well bsSize="large">
+           <div className="white-box">
             <h3>Portfolio Survey</h3>
             <form>
               <FormGroup>
@@ -77,7 +77,7 @@ class Settings extends React.Component {
               </FormGroup>
               <Button type="submit">Submit</Button>
             </form>
-          </Well>
+          </div>
       	</div>
   		</div>
     );

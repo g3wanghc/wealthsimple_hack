@@ -33,7 +33,7 @@ class Funding extends React.Component {
           </p>
 					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Deposit">
-              <Well bsSize="large">
+              <div className="white-box">
                 <h3>Deposit</h3>
                 <form>
                   <FormGroup controlId="formControlsFromAccount">
@@ -59,10 +59,10 @@ class Funding extends React.Component {
                   </FormGroup>
                   <Button type="submit">Deposit</Button>
                 </form>
-              </Well>
+              </div>
             </Tab>
             <Tab eventKey={2} title="Withdrawal">
-              <Well bsSize="large">
+              <div className="white-box">
                 <h3>Withdrawal</h3>
                 <form>
                   <FormGroup controlId="formControlsFromAccount">
@@ -88,7 +88,7 @@ class Funding extends React.Component {
                   </FormGroup>
                   <Button type="submit">Withdraw</Button>
                 </form>
-              </Well>
+              </div>
             </Tab>
           </Tabs>
 				</div>

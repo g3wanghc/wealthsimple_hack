@@ -30,7 +30,7 @@ class Profile extends React.Component {
             <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
               <Tab eventKey={1} title="Profile">
                 <div className="tab-content">
-                    <Well bsSize="large">
+                    <div className="white-box">
                         <h3>Profile</h3>
                         <form>
                             <Form inline>
@@ -92,11 +92,11 @@ class Profile extends React.Component {
                             </FormGroup>
                             <Button type="submit">Save Changes</Button>
                           </form>
-                      </Well>
+                      </div>
                     </div>
               </Tab>
               <Tab eventKey={2} title="Security">
-                <Well bsSize="large">
+                <div className="white-box">
                     <h3>Security</h3>
                     <form>
                         <FormGroup controlId="formControlsOldPassword">
@@ -111,25 +111,25 @@ class Profile extends React.Component {
                         </FormGroup>
                         <Button type="submit">Save Changes</Button>
                     </form>
-                </Well>
+                </div>
               </Tab>
               <Tab eventKey={3} title="Accounts">
-                <Well bsSize="large">
+                <div className="white-box">
                     <h3>Accounts</h3>
                     <h4>Investment Profile</h4>
                     <p>To change the risk level of your portfolio or how you're invested, please tell us about the change you’d like to make. You may be required to book a call with a Portfolio Manager.</p>
                     <h4>Close account</h4>
                     <p>Please call your Relationship Manager at +1 (855) 255-9038 to close your account.</p>
-                </Well>
+                </div>
               </Tab>
               <Tab eventKey={4} title="Bank Accounts">
-                  <Well bsSize="large">
+                  <div className="white-box">
                     <h3>Bank Accounts</h3>
                     <strong> RBC ****000</strong>
                     <p>Added Jan 1 2018</p>
                     <Button>Add a bank account</Button>{' '}
                     <Button>Verify a bank document</Button>
-                </Well>
+                </div>
               </Tab>
             </Tabs>
         </div>

@@ -27,7 +27,7 @@ class Activity extends React.Component {
 			}}>
 				Activity
 			</p>
-			<Well bsSize="large">
+			<div className="white-box">
 				<div className="activity-top">
 					<div className="item-space">
 						<DropdownButton
@@ -62,11 +62,10 @@ class Activity extends React.Component {
 					  </ButtonToolbar>
 					</div>
 				</div>
-			</Well>
+			</div>
 
-			<Well bsSize="large">
+			<div className="white-box">
 				<div className="activity-bottom">
-				
 				  <Panel id="collapsible-panel-example-2" expanded="True">
 		          <Panel.Heading>
 		            <Panel.Title toggle>
@@ -127,8 +126,8 @@ class Activity extends React.Component {
 		            </Panel.Body>
 		          </Panel.Collapse>
 		        </Panel>
+				</div>
 			</div>
-			</Well>
 		</div>
   		</div>
     );
