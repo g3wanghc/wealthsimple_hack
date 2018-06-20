@@ -4,12 +4,21 @@ import Helpers from './helpers.js';
 import './custom_style.css';
 import CustomNavbar from './navbar.js'
 import Countdown from 'react-countdown-now';
-import {AreaChart} from 'react-easy-chart';
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
+import {Forecast} from 'react-forecast';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { 
+      bankAccounts: ["RBC (**** **** **** 000)", "Tangerine (**** **** **** 001)"],
+      investmentAccounts: ["Databaes - First Record Fund"]
+    };
   }
+
+  renderer ({ hours, minutes, seconds, completed }) {
+      return <span>{hours} hours {minutes} mins {seconds} secs</span>;
+  };
 
   render() {
     var lotteryTime = new Date();
@@ -27,7 +36,6 @@ class Dashboard extends React.Component {
           <div className="dashboard-whole">
             <p className="dashboard-wrapper">Good evening, Andrew.</p>
             <h2>Databaes - Data Flows</h2>
-            
             <div style={{
               float: 'left',
             }}>
@@ -48,56 +56,91 @@ class Dashboard extends React.Component {
               <h5>Your Contributions</h5>
               <h2>$150.00</h2>
             </div>
+            <iframe 
+              style={{
+                float: 'right',
+                marginTop: '-100px',
+                marginRight: '20px'
+              }}
+              id="forecast_embed" 
+              frameborder="0" 
+              width="300px" 
+              height="200px"
+              src="//forecast.io/embed/#lat=43.6532&lon=-79.3832&name=Toronto&units=uk">
+            </iframe>
           </div>
 
           <div className="dashboard-left">
-            <h4>Milestones</h4>
-            <AreaChart
-              xType={'time'}
-              axes
-              dataPoints
-              xTicks={5}
-              yTicks={3}
-              grid
-              tickTimeDisplayFormat={'%m %y'}
-              interpolate={'cardinal'}
-              width={650}
-              height={250}
-              data={[
+            <h3>Milestones</h3>
+
+            <AreaChart width={700} height={300} data={
                 [
-                  { x: '1-Jan-18', y: 527 },
-                  { x: '1-Jan-19', y: 553 },
-                  { x: '1-Jan-20', y: 581 },
-                  { x: '1-Jan-21', y: 611 },
-                  { x: '1-Jan-22', y: 642 }
-                ], [
-                  { x: '1-Jan-18', y: 300 },
-                  { x: '1-Jan-19', y: 315 },
-                  { x: '1-Jan-20', y: 331 },
-                  { x: '1-Jan-21', y: 348 },
-                  { x: '1-Jan-22', y: 366 }
-                ], [
-                  { x: '1-Jan-18', y: 150 },
-                  { x: '1-Jan-19', y: 158 },
-                  { x: '1-Jan-20', y: 166 },
-                  { x: '1-Jan-21', y: 175 },
-                  { x: '1-Jan-22', y: 184 }
+                  {name: 'Today', Andrew: 526, Hanchen: 300, Go: 150},
+                  {name: 'July', Andrew: 550, Hanchen: 325, Go: 175},
+                  {name: 'August', Andrew: 575, Hanchen: 356, Go: 200},
+                  {name: 'September', Andrew: 600, Hanchen: 375, Go: 234}
                 ]
-              ]}
-            />
+              }
+              margin={{top: 35, right: 0, left: 0, bottom: 0}}>
+              <CartesianGrid strokeDasharray="3 3"/>
+              <XAxis dataKey="name" hide/>
+              <YAxis hide/>
+              <Tooltip/>
+              <Area type='monotone' dataKey='Andrew' stackId="1" stroke='#8884d8' fill='#8884d8' />
+              <Area type='monotone' dataKey='Hanchen' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
+              <Area type='monotone' dataKey='Go' stackId="1" stroke='#ffc658' fill='#ffc658' />
+            </AreaChart>
+            <br></br>
+            <h4> New Drum Set: $750 </h4>
           </div>
           <div className="dashboard-right">
-            <h4>Daily Lottery</h4>
-            <h3 className="lottery-text">Latest Winner: George</h3>
-            <div className="lottery-text">
-              <Countdown date={lotteryTime} />
-            </div>
+            <div style={{
+              width: '320px',
+              fontFamily: 'Arial, Helvetica, sans-serif' 
+            }}>
+              <h3>Deposit</h3>
+                <FormGroup controlId="formControlsFromAccount">
+                  <h5>From</h5>
+                  <FormControl componentClass="select" placeholder="Choose Account">
+                    {this.state.bankAccounts.map(function(item, i){
+                      console.log('test');
+                      return <option key={i}>{item}</option>
+                    })}
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="formControlsToAccount">
+                  <h5>From</h5>
+                  <FormControl componentClass="select" placeholder="Choose Account">
+                    {this.state.investmentAccounts.map(function(item, i){
+                      console.log('test');
+                      return <option key={i}>{item}</option>
+                    })}
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="formControlsDepositAmount">
+                  <FormControl placeholder="Amount" />
+                </FormGroup>
+                <Button bsStyle="primary" style={{
+                  width: '150px',
+                  height: '40px',
+                  marginTop: '10px',
+                  borderRadius: '18px',
+                  fontSize: '16px',
+                  backgroundImage: 'none',
+                  backgroundColor: 'grey',
+                  borderColor: 'grey'
+                }}>Contribute</Button>
+              </div>
           </div>
-          <div className="dashboard-left">
+          <div className="dashboard-left" style={{
+            marginBottom: '20px'
+          }}>
             <h3>Vote on next week's Portolio</h3>
-            <form>
+            <form style={{
+              marginTop: '25px'
+            }}>
               <FormGroup>
-                <ControlLabel>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</ControlLabel>
+                <h5>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</h5>
                 <Radio name="radioGroup">
                   Invest in many different stocks.
                 </Radio>{' '}
@@ -111,27 +154,58 @@ class Dashboard extends React.Component {
                   Invest in many different stocks and bonds
                 </Radio>
               </FormGroup>
+              <br></br>
               <FormGroup>
-                <ControlLabel>If you were to invest %s, which scenario would you be happiest with?</ControlLabel>
+                <h5>If you were to invest, which scenario would you be happiest with?</h5>
                 <Radio name="radioGroup2">
-                  I can take some losses (%s) to earn more long term (%s).
+                  I can take some losses to earn more long term.
                 </Radio>{' '}
                 <Radio name="radioGroup2">
-                  I'm willing to take small losses (%s) to earn a little long term (%s).
+                  I'm willing to take small losses to earn a little long term.
                 </Radio>{' '}
                 <Radio name="radioGroup2">
-                  I'm comfortable with losses (%s) to maximize what I earn long term (%s).
+                  I'm comfortable with losses to maximize what I earn long term.
                 </Radio>
               </FormGroup>
-              <Button type="submit">Submit</Button>
+              <Button bsStyle="primary" style={{
+                  width: '180px',
+                  height: '40px',
+                  marginTop: '10px',
+                  borderRadius: '18px',
+                  fontSize: '16px',
+                  backgroundImage: 'none',
+                  backgroundColor: 'grey',
+                  borderColor: 'grey'
+                }}>Submit Vote</Button>
             </form>
           </div>
-          <div className="dashboard-right-small">
-            <h4>Benefits</h4>
-            <h5>Savings on fees: $100</h5>
-            <h5>Free trades made: 60</h5>
-            <h5>Reinvested dividends: $500</h5>
-            <h5>Assets managed for free: $20,000</h5>
+          <div className="dashboard-right-lottery">
+            <h3 style={{
+              marginBottom: '20px'
+            }}>Team Lottery</h3>
+            <h4>Next Jackpot</h4>
+            <div style={{
+            }}>$26.35</div>
+            <h4>Countdown</h4>
+            <div style={{
+            }}>
+              <Countdown date={lotteryTime} renderer={this.renderer}/>
+            </div>
+          </div>
+
+          <div className="dashboard-right-small" style={{
+            marginTop: '10px'
+          }}>
+            <h3>Contact</h3>
+            <br></br>
+            <div><a>Facebook</a></div>
+            <div><a>Twitter</a></div>
+            <div><a>Instagram</a></div>
+            <div><a>Snapchat</a></div>
+            <br></br>
+            <div>(415) 234 - 5678</div>
+            <div><a>support@squad-gains.io</a></div>
+            <div>Wealthsimple HQ - Toronto</div>
           </div>
         </div>
       </div>

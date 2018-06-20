@@ -8,8 +8,8 @@ class Funding extends React.Component {
   constructor(props) {
     super(props);  
     this.state = { 
-      bankAccounts: ["RBC (****000)", "Tangerine (****001)"],
-      investmentAccounts: ["Investment Account A", "Investment Account B"]
+      bankAccounts: ["RBC (**** **** **** 000)", "Tangerine (**** **** **** 001)"],
+      investmentAccounts: ["Databaes Music Fund"]
     };
     this.userLogOut = this.userLogOut.bind(this);
   }
@@ -27,7 +27,9 @@ class Funding extends React.Component {
           <p style={{
             fontSize: '22px',
             marginTop: '10px',
-            marginBottom: '30px'
+            marginBottom: '30px',
+            marginLeft: '10px',
+            fontWeight: 'bold'
           }}>
             Funding
           </p>

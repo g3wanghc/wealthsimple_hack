@@ -23,46 +23,12 @@ class Activity extends React.Component {
 			<p style={{
 				fontSize: '22px',
 				marginTop: '10px',
-				marginBottom: '30px'
+				marginBottom: '30px',
+				marginLeft: '10px',
+				fontWeight: 'bold'
 			}}>
 				Activity
 			</p>
-			<div className="white-box">
-				<div className="activity-top">
-					<div className="item-space">
-						<DropdownButton
-				      title="Date"
-				      id="activity-date-dropdown"
-				    >
-				      <MenuItem eventKey="1">All time</MenuItem>
-				      <MenuItem eventKey="2">Past month</MenuItem>
-				      <MenuItem eventKey="3">Past year</MenuItem>
-				    </DropdownButton>
-			    </div>
-			    <div className="item-space">
-				    <ButtonToolbar>
-					    <ToggleButtonGroup type="checkbox">
-					      <ToggleButton value={1}>All accounts</ToggleButton>
-					      <ToggleButton value={2}>TFSA</ToggleButton>
-					    </ToggleButtonGroup>
-					  </ButtonToolbar>
-				  </div>
-				  <div className="item-space">
-					  <ButtonToolbar>
-					    <ToggleButtonGroup type="checkbox" defaultValue={[1]}>
-					      <ToggleButton value={1}>All activities</ToggleButton>
-					      <ToggleButton value={2}>Deposits</ToggleButton>
-					      <ToggleButton value={3}>Investments</ToggleButton>
-					      <ToggleButton value={4}>Sales</ToggleButton>
-					      <ToggleButton value={5}>Dividends and interest</ToggleButton>
-					      <ToggleButton value={6}>Fees and reimbursements</ToggleButton>
-					      <ToggleButton value={7}>Withdrawals</ToggleButton>
-					      <ToggleButton value={8}>Corrections</ToggleButton>
-					    </ToggleButtonGroup>
-					  </ButtonToolbar>
-					</div>
-				</div>
-			</div>
 
 			<div className="white-box">
 				<div className="activity-bottom">

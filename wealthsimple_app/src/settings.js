@@ -23,7 +23,9 @@ class Settings extends React.Component {
           <p style={{
             fontSize: '22px',
             marginTop: '10px',
-            marginBottom: '30px'
+            marginBottom: '30px',
+            marginLeft: '10px',
+            fontWeight: 'bold'
           }}>
               Team Settings
           </p>
@@ -44,41 +46,7 @@ class Settings extends React.Component {
           <div className="white-box">
             <h3>Lottery Settings</h3>
           </div>
-   
-           <div className="white-box">
-            <h3>Portfolio Survey</h3>
-            <form>
-              <FormGroup>
-                <ControlLabel>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</ControlLabel>
-                <Radio name="answer-26">
-                  Invest in many different stocks.
-                </Radio>{' '}
-                <Radio name="answer-27">
-                  Invest in many different bonds.
-                </Radio>{' '}
-                <Radio name="answer-25">
-                  Invest all my money in one stock or bond.
-                </Radio>
-                <Radio name="answer-28">
-                  Invest in many different stocks and bonds
-                </Radio>
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>If you were to invest %s, which scenario would you be happiest with?</ControlLabel>
-                <Radio name="answer-41">
-                  I can take some losses (%s) to earn more long term (%s).
-                </Radio>{' '}
-                <Radio name="answer-40">
-                  I'm willing to take small losses (%s) to earn a little long term (%s).
-                </Radio>{' '}
-                <Radio name="answer-42">
-                  I'm comfortable with losses (%s) to maximize what I earn long term (%s).
-                </Radio>
-              </FormGroup>
-              <Button type="submit">Submit</Button>
-            </form>
-          </div>
-      	</div>
+        </div>
   		</div>
     );
   }

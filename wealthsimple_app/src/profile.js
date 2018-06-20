@@ -21,9 +21,11 @@ class Profile extends React.Component {
         <CustomNavbar loginHandler={this.props.loginHandler} pageHandler={this.props.pageHandler} />
         <div className="container">
             <p style={{
-                fontSize: '22px',
-                marginTop: '10px',
-                marginBottom: '30px'
+              fontSize: '22px',
+              marginTop: '10px',
+              marginBottom: '30px',
+              marginLeft: '10px',
+              fontWeight: 'bold'
             }}>
                 Profile
             </p>

@@ -80,8 +80,7 @@ class Login extends React.Component {
                 backgroundImage: 'none',
                 backgroundColor: 'black',
               }}
-              bsStyle="primary"
-            >
+              bsStyle="primary">
               Sign In
             </Button>
             <div style={{
