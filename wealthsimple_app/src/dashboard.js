@@ -117,16 +117,7 @@ class Dashboard extends React.Component {
                 <FormGroup controlId="formControlsDepositAmount">
                   <FormControl placeholder="Amount" />
                 </FormGroup>
-                <Button bsStyle="primary" style={{
-                  width: '150px',
-                  height: '40px',
-                  marginTop: '10px',
-                  borderRadius: '18px',
-                  fontSize: '16px',
-                  backgroundImage: 'none',
-                  backgroundColor: 'grey',
-                  borderColor: 'grey'
-                }}>Contribute</Button>
+                <Button>Contribute</Button>
               </div>
           </div>
           <div className="dashboard-left" style={{
@@ -164,16 +155,7 @@ class Dashboard extends React.Component {
                   I'm comfortable with losses to maximize what I earn long term.
                 </Radio>
               </FormGroup>
-              <Button bsStyle="primary" style={{
-                  width: '180px',
-                  height: '40px',
-                  marginTop: '10px',
-                  borderRadius: '18px',
-                  fontSize: '16px',
-                  backgroundImage: 'none',
-                  backgroundColor: 'grey',
-                  borderColor: 'grey'
-                }}>Submit Vote</Button>
+              <Button>Submit Vote</Button>
             </form>
           </div>
           <div className="dashboard-right-lottery">

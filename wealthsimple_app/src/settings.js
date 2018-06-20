@@ -10,7 +10,7 @@ class Settings extends React.Component {
 
     this.state = {
       goal: null,
-      goalAmount: 1
+      goalAmount: 0
     }
 
     this.userLogOut = this.userLogOut.bind(this);
@@ -63,7 +63,7 @@ class Settings extends React.Component {
                 <ControlLabel>Amount</ControlLabel>{' '}
                 <FormControl placeholder="Enter goal amount" onChange={this.handleGoalAmountChange}  />
               </FormGroup>{' '}
-              <Button onClick={this.handleGoalSubmission}>Add goal</Button>
+              <Button className="custom-button" onClick={this.handleGoalSubmission}>Add goal</Button>
             </form>
           </div>
           <div className="white-box">
