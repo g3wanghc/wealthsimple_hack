@@ -13,7 +13,7 @@ Squad Gains is a platform that lets people invest as a team. Every week, members
 - [ReactBootstrap](https://react-bootstrap.github.io/) (styling)
 - [Flask](http://flask.pocoo.org/) (backend)
 - [SQLite 3](flask.pocoo.org/docs/1.0/patterns/sqlite3/) (database)
-- [Advanced Python Scheduler](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) (https://apscheduler.readthedocs.io/)
+- [Advanced Python Scheduler](https://apscheduler.readthedocs.io/)(scheduler) 
 - [Darksky](https://darksky.net/) (weather data)
 
 ### Authors
