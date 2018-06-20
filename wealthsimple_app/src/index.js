@@ -16,19 +16,23 @@ import {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = { 
       username: '',
       password: '',
       isLoggedIn: false,
       currentPage: 'dashboard',
       goalName: "old goal",
-      goalAmount: 1500
+      goalAmount: 1500,
+      lotteryEnabled: "enabled",
+      lotteryAmount: 25.00,
+      lotteryFrequency: 'daily'
     };
 
     this.changeLogInState = this.changeLogInState.bind(this);
     this.changeCurrentPageState = this.changeCurrentPageState.bind(this);
     this.changeGoalState = this.changeGoalState.bind(this);
+    this.changeLotteryState = this.changeLotteryState.bind(this);
     this.getState = this.getState.bind(this);
   }
 
@@ -42,7 +46,13 @@ class App extends React.Component {
 
   changeGoalState(goal, goalAmount) {
     this.setState({goalName: goal, goalAmount: goalAmount});
-    console.log("goal state changed!!", goal);
+    console.log("Goal state changed!");
+  }
+
+  changeLotteryState(lotteryEnabled, lotteryAmount) {
+    this.setState({lotteryEnabled: lotteryEnabled, lotteryAmount: lotteryAmount});
+    console.log("Lottery state changed!");
+    console.log(this.state);
   }
 
   getState() {
@@ -59,7 +69,7 @@ class App extends React.Component {
         {this.state.isLoggedIn ? null : <Login loginHandler={this.changeLogInState}/>}
         {this.state.currentPage === 'dashboard' && this.state.isLoggedIn ? <Dashboard loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState} getState={this.getState}/> : null }
         {this.state.currentPage === 'profile' && this.state.isLoggedIn ? <Profile loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
-        {this.state.currentPage === 'settings' && this.state.isLoggedIn ? <Settings loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState} goalHandler={this.changeGoalState}/> : null }
+        {this.state.currentPage === 'settings' && this.state.isLoggedIn ? <Settings loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState} lotteryHandler={this.changeLotteryState} goalHandler={this.changeGoalState}/> : null }
         {this.state.currentPage === 'activity' && this.state.isLoggedIn ? <Activity loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
         {this.state.currentPage === 'funding' && this.state.isLoggedIn ? <Funding loginHandler={this.changeLogInState} pageHandler={this.changeCurrentPageState}/> : null }
       </div>

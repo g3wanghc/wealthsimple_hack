@@ -158,19 +158,22 @@ class Dashboard extends React.Component {
               <Button>Submit Vote</Button>
             </form>
           </div>
+
+          {this.props.getState().lotteryEnabled === "enabled"  ?
           <div className="dashboard-right-lottery">
             <h3 style={{
               marginBottom: '20px'
             }}>Team Lottery</h3>
             <h4>Next Jackpot</h4>
             <div style={{
-            }}>$26.35</div>
+            }}>${this.props.getState().lotteryAmount}</div>
             <h4>Countdown</h4>
             <div style={{
             }}>
               <Countdown date={lotteryTime} renderer={this.renderer}/>
             </div>
           </div>
+          : null}
 
           <div className="dashboard-right-small" style={{
             marginTop: '10px'

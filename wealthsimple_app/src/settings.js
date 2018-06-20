@@ -10,13 +10,20 @@ class Settings extends React.Component {
 
     this.state = {
       goal: null,
-      goalAmount: 0
+      goalAmount: 0,
+      lotteryEnabled: "enabled",
+      lotteryAmount: 26.35,
+      lotteryFrequency: 'daily'
     }
 
     this.userLogOut = this.userLogOut.bind(this);
     this.handleGoalSubmission = this.handleGoalSubmission.bind(this);
     this.handleGoalNameChange = this.handleGoalNameChange.bind(this);
     this.handleGoalAmountChange = this.handleGoalAmountChange.bind(this);
+    this.handleLotterySubmission = this.handleLotterySubmission.bind(this);
+    this.handleLotteryEnabledChange = this.handleLotteryEnabledChange.bind(this);
+    this.handleLotteryAmountChange = this.handleLotteryAmountChange.bind(this);
+    this.handleLotteryFrequencyChange = this.handleLotteryFrequencyChange.bind(this);
   }
 
   userLogOut() {
@@ -36,6 +43,24 @@ class Settings extends React.Component {
 
   handleGoalAmountChange(e) {
     this.setState({ goalAmount: e.target.value });
+  }
+
+  handleLotteryEnabledChange(e) {
+    this.setState({ lotteryEnabled: e.target.value });
+  }
+
+  handleLotteryAmountChange(e) {
+    this.setState({ lotteryAmount: e.target.value });
+  }
+
+  handleLotteryFrequencyChange(e) {
+    this.setState({ lotteryFrequency: e.target.value });
+  }
+
+  handleLotterySubmission() {
+    console.log("submitting new lottery settings");
+    console.log(this.state);
+    this.props.lotteryHandler(this.state.lotteryEnabled, this.state.lotteryAmount, this.state.lotteryFrequency)
   }
 
   render() {
@@ -68,6 +93,29 @@ class Settings extends React.Component {
           </div>
           <div className="white-box">
             <h3>Lottery Settings</h3>
+            <form>
+              <FormGroup controlId="formControlsLotteryEnabled">
+                <ControlLabel>Enable Lottery</ControlLabel>{' '}
+                <FormControl componentClass="select" placeholder="Enable/Disable Lottery" onChange={this.handleLotteryEnabledChange}>
+                  <option value="enabled">Enable</option>
+                  <option value="disabled">Disable</option>
+                </FormControl>
+              </FormGroup>{' '}
+              <FormGroup controlId="formInlineLotteryJackpot">
+                <ControlLabel>Lottery Jackpot</ControlLabel>{' '}
+                <FormControl placeholder="Enter jackpot amount" onChange={this.handleLotteryAmountChange}  />
+              </FormGroup>{' '}
+              <FormGroup controlId="formControlsLotteryFrequency">
+                <ControlLabel>Lottery Frequency</ControlLabel>{' '}
+                <FormControl componentClass="select" placeholder="Lottery frequency" onChange={this.handleLotteryFrequencyChange}>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </FormControl>
+              </FormGroup>{' '}
+              <Button className="custom-button" onClick={this.handleLotterySubmission}>Save Changes</Button>
+            </form>
           </div>
         </div>
   		</div>
