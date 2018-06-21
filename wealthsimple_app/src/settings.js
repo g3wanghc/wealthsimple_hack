@@ -114,8 +114,8 @@ class Settings extends React.Component {
                 <FormGroup controlId="formControlsLotteryEnabled">
                   <ControlLabel>Enable Lottery</ControlLabel>{' '}
                   <FormControl componentClass="select" placeholder="Enable/Disable Lottery" onChange={this.handleLotteryEnabledChange}>
-                    <option value="enabled">Enable</option>
                     <option value="disabled">Disable</option>
+                    <option value="enabled">Enable</option>
                   </FormControl>
                 </FormGroup>{' '}
                 <FormGroup controlId="formInlineLotteryJackpot">
