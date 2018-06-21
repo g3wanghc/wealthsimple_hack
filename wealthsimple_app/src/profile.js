@@ -125,8 +125,8 @@ class Profile extends React.Component {
                     <h3>Bank Accounts</h3>
                     <strong> RBC ****000</strong>
                     <p>Added Jan 1 2018</p>
-                    <Button>Add a bank account</Button>{' '}
-                    <Button>Verify a bank document</Button>
+                    <Button>Add bank account</Button>{' '}
+                    <Button>Verify documents</Button>
                 </div>
               </Tab>
             </Tabs>
