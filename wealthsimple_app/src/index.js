@@ -24,7 +24,7 @@ class App extends React.Component {
       currentPage: 'dashboard',
       goalName: "New Drum Set",
       goalAmount: 700,
-      lotteryEnabled: "enabled",
+      lotteryEnabled: "disabled",
       lotteryAmount: 25.00,
       lotteryFrequency: 'daily',
       teamPorfolioBalance: 526.93,
