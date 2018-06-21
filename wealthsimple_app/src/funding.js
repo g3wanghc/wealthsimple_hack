@@ -33,36 +33,39 @@ class Funding extends React.Component {
           }}>
             Funding
           </p>
-					<Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+					<Tabs bsStyle="pills" defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Deposit">
-              <div className="white-box">
-                <h3>Deposit</h3>
-                <form>
-                  <FormGroup controlId="formControlsFromAccount">
-                    <ControlLabel>From</ControlLabel>
-                    <FormControl componentClass="select" placeholder="Choose Account">
-                      {this.state.bankAccounts.map(function(item, i){
-                        return <option key={i}>{item}</option>
-                      })}
-                    </FormControl>
-                  </FormGroup>
-                  <FormGroup controlId="formControlsToAccount">
-                    <ControlLabel>To</ControlLabel>
-                    <FormControl componentClass="select" placeholder="Choose Account">
-                      {this.state.investmentAccounts.map(function(item, i){
-                        return <option key={i}>{item}</option>
-                      })}
-                    </FormControl>
-                  </FormGroup>
-                  <FormGroup controlId="formControlsDepositAmount">
-                    <FormControl placeholder="Enter amount to deposit" />
-                  </FormGroup>
-                  <Button type="submit">Deposit</Button>
-                </form>
+              <div className="tab-content">
+                <div className="white-box">
+                  <h3>Deposit</h3>
+                  <form>
+                    <FormGroup controlId="formControlsFromAccount">
+                      <ControlLabel>From</ControlLabel>
+                      <FormControl componentClass="select" placeholder="Choose Account">
+                        {this.state.bankAccounts.map(function(item, i){
+                          return <option key={i}>{item}</option>
+                        })}
+                      </FormControl>
+                    </FormGroup>
+                    <FormGroup controlId="formControlsToAccount">
+                      <ControlLabel>To</ControlLabel>
+                      <FormControl componentClass="select" placeholder="Choose Account">
+                        {this.state.investmentAccounts.map(function(item, i){
+                          return <option key={i}>{item}</option>
+                        })}
+                      </FormControl>
+                    </FormGroup>
+                    <FormGroup controlId="formControlsDepositAmount">
+                      <FormControl placeholder="Enter amount to deposit" />
+                    </FormGroup>
+                    <Button type="submit">Deposit</Button>
+                  </form>
+                </div>
               </div>
             </Tab>
             <Tab eventKey={2} title="Withdrawal">
-              <div className="white-box">
+              <div className="tab-content">
+                <div className="white-box">
                 <h3>Withdrawal</h3>
                 <form>
                   <FormGroup controlId="formControlsFromAccount">
@@ -86,6 +89,7 @@ class Funding extends React.Component {
                   </FormGroup>
                   <Button type="submit">Withdraw</Button>
                 </form>
+                </div>
               </div>
             </Tab>
           </Tabs>

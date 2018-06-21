@@ -29,7 +29,7 @@ class Profile extends React.Component {
             }}>
                 Profile
             </p>
-            <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+            <Tabs bsStyle="pills" defaultActiveKey={1} id="uncontrolled-tab-example">
               <Tab eventKey={1} title="Profile">
                 <div className="tab-content">
                     <div className="white-box">

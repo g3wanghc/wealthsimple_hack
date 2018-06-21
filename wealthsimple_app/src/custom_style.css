@@ -145,6 +145,17 @@ html, body {
   align-content: center;
 }
 
+/* TABS */
+.nav-pills>li.active>a {
+  background-color: gray !important;
+  border-radius: 18px !important;
+}
+
+.nav-pills>li>a {
+  color: black;
+  border-radius: 18px !important;
+}
+
 /* ACTIVITY PAGE */
 
 .activity-top {
