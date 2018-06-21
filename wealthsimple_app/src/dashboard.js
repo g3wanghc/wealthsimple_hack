@@ -88,10 +88,10 @@ class Dashboard extends React.Component {
 
             <AreaChart width={700} height={300} data={
                 [
-                  {name: 'Today', Andrew: 526, Hanchen: 300, Go: 150},
-                  {name: 'July', Andrew: 550, Hanchen: 325, Go: 175},
-                  {name: 'August', Andrew: 575, Hanchen: 356, Go: 200},
-                  {name: 'September', Andrew: 600, Hanchen: 375, Go: 234}
+                  {name: 'Today', Andrew: 326, Hanchen: 100, Go: 100},
+                  {name: 'July', Andrew: 345, Hanchen: 106, Go: 106},
+                  {name: 'August', Andrew: 365, Hanchen: 112, Go: 112},
+                  {name: 'September', Andrew: 387, Hanchen: 119, Go: 119}
                 ]
               }
               margin={{top: 35, right: 0, left: 0, bottom: 0}}>
