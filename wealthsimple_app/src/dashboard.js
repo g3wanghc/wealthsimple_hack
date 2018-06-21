@@ -138,7 +138,7 @@ class Dashboard extends React.Component {
             <div className="dashboard-left" style={{
               marginBottom: '20px'
             }}>
-              <h3>Vote on next week's Portolio</h3>
+              <h3>Vote on next month's Portolio</h3>
               <form style={{
                 marginTop: '25px'
               }}>
@@ -179,7 +179,7 @@ class Dashboard extends React.Component {
             }}>
               <center>
                 <h3>Thanks for voting!</h3>
-                <h4>Your portfolio will be updated on Monday.</h4>
+                <h4>Your portfolio will be updated on July 1, 2018.</h4>
               </center>
             </div>
           }
