@@ -134,44 +134,55 @@ class Dashboard extends React.Component {
                 <Button onClick={this.handleDepositSubmission}>Contribute</Button>
               </div>
           </div>
-          <div className="dashboard-left" style={{
-            marginBottom: '20px'
-          }}>
-            <h3>Vote on next week's Portolio</h3>
-            <form style={{
-              marginTop: '25px'
+          {this.props.getState().voteAvailable === true  ?
+            <div className="dashboard-left" style={{
+              marginBottom: '20px'
             }}>
-              <FormGroup>
-                <h5>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</h5>
-                <Radio name="radioGroup">
-                  Invest in many different stocks.
-                </Radio>{' '}
-                <Radio name="radioGroup">
-                  Invest in many different bonds.
-                </Radio>{' '}
-                <Radio name="radioGroup">
-                  Invest all my money in one stock or bond.
-                </Radio>
-                <Radio name="radioGroup">
-                  Invest in many different stocks and bonds
-                </Radio>
-              </FormGroup>
-              <br></br>
-              <FormGroup>
-                <h5>If you were to invest, which scenario would you be happiest with?</h5>
-                <Radio name="radioGroup2">
-                  I can take some losses to earn more long term.
-                </Radio>{' '}
-                <Radio name="radioGroup2">
-                  I'm willing to take small losses to earn a little long term.
-                </Radio>{' '}
-                <Radio name="radioGroup2">
-                  I'm comfortable with losses to maximize what I earn long term.
-                </Radio>
-              </FormGroup>
-              <Button>Submit Vote</Button>
-            </form>
-          </div>
+              <h3>Vote on next week's Portolio</h3>
+              <form style={{
+                marginTop: '25px'
+              }}>
+                <FormGroup>
+                  <h5>If you decided to invest on your own and build a diversified portfolio, how do you think you'd do it?</h5>
+                  <Radio name="radioGroup">
+                    Invest in many different stocks.
+                  </Radio>{' '}
+                  <Radio name="radioGroup">
+                    Invest in many different bonds.
+                  </Radio>{' '}
+                  <Radio name="radioGroup">
+                    Invest all my money in one stock or bond.
+                  </Radio>
+                  <Radio name="radioGroup">
+                    Invest in many different stocks and bonds
+                  </Radio>
+                </FormGroup>
+                <br></br>
+                <FormGroup>
+                  <h5>If you were to invest, which scenario would you be happiest with?</h5>
+                  <Radio name="radioGroup2">
+                    I can take some losses to earn more long term.
+                  </Radio>{' '}
+                  <Radio name="radioGroup2">
+                    I'm willing to take small losses to earn a little long term.
+                  </Radio>{' '}
+                  <Radio name="radioGroup2">
+                    I'm comfortable with losses to maximize what I earn long term.
+                  </Radio>
+                </FormGroup>
+                <Button onClick={this.props.voteHandler}>Submit Vote</Button>
+              </form>
+            </div>
+          : 
+            <div className="dashboard-left-small" style={{
+              marginBottom: '20px'
+            }}>
+              <center>
+                <h3>Thanks for voting!</h3>
+                <h4>Your portfolio will be updated on Monday.</h4>
+              </center>
+            </div>
+          }
 
           {this.props.getState().lotteryEnabled === "enabled"  ?
           <div className="dashboard-right-lottery">
